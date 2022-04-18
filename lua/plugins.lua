@@ -33,7 +33,8 @@ use 'sbdchd/neoformat'
 use 'folke/todo-comments.nvim'
 use 'mfussenegger/nvim-dap'
 use 'rcarriga/nvim-dap-ui'
-
+use 'onsails/lspkind.nvim'
+use 'tpope/vim-commentary'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

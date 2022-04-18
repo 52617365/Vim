@@ -102,6 +102,10 @@ api.nvim_set_keymap('n', '<Leader>2', ':lua require("harpoon.ui").nav_file(2)<CR
 api.nvim_set_keymap('n', '<Leader>3', ':lua require("harpoon.ui").nav_file(3)<CR>', opts)
 api.nvim_set_keymap('n', '<Leader>4', ':lua require("harpoon.ui").nav_file(4)<CR>', opts)
 
+-- Comment code
+api.nvim_set_keymap('n', '<Leader>cc', ':Commentary<CR>', opts)
+api.nvim_set_keymap('n', '<Leader>cs', '{v}:Commentary<CR>', opts)
+
 -- Debugger key bindings (nvim-dap)
 -- TODO: ALL BINDINGS
 api.nvim_set_keymap('n', '<Alt>b', ':lua require("dap").toggle_breakpoint()<CR>', opts)
@@ -143,8 +147,7 @@ api.nvim_set_keymap('n', '<C-l>', '3w', opts)
 
 -- lspconfig keybindings
 api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+api.nvim_set_keymap('n', 'se', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
 -- Setup nvim-cmp.
