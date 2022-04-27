@@ -31,10 +31,13 @@ use 'nvim-telescope/telescope-fzy-native.nvim'
 use 'ThePrimeagen/harpoon'
 use 'sbdchd/neoformat'
 use 'folke/todo-comments.nvim'
+use 'github/copilot.vim'
 use 'mfussenegger/nvim-dap'
 use 'rcarriga/nvim-dap-ui'
 use 'onsails/lspkind.nvim'
 use 'tpope/vim-commentary'
+use 'turbio/bracey.vim'
+use 'preservim/nerdtree'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
