@@ -35,6 +35,12 @@ autocmd BufWritePre * undojoin | Neoformat
 augroup END
 ]])
 
+-- Close the tab if NERDTree is the only window remaining in it.
+-- Open nerd tree when nvim is opened.
+cmd([[
+autocmd VimEnter * NERDTree | wincmd p
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+]])
 
 cmd([[
 colorscheme gruvbox
@@ -73,6 +79,9 @@ opt.lazyredraw = true
 opt.synmaxcol = 240
 opt.expandtab = true
 opt.completeopt = 'menu,menuone,noselect'
+g['bracey_server_allow_remote_connections'] = 1
+g['bracey_auto_start_browser'] = 0
+g['bracey_server_path'] = 'http://localhost'
 
 -------------
 -- Mappings --
