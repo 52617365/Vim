@@ -8,8 +8,26 @@ local g = vim.g local api = vim.api local opts = { noremap=true, silent=true }
 --------------
 -- Options --
 --------------
-
-
+g.nvim_tree_icons = {
+  default = "",
+  symlink = "",
+  git = {
+    unstaged = "",
+    staged = "S",
+    unmerged = "",
+    renamed = "➜",
+    deleted = "",
+    untracked = "U",
+    ignored = "◌",
+  },
+  folder = {
+    default = "",
+    open = "",
+    empty = "",
+    empty_open = "",
+    symlink = "",
+  },
+}
 g.mapleader = ';'
 
 cmd([[
@@ -60,28 +78,42 @@ vim.cmd([[
 set clipboard^=unnamed,unnamedplus
 ]])
 
-g.airline_powerline_fonts = true
 opt.tabstop = 4
-opt.shortmess:append("c")
+opt.shortmess:append "c"
 opt.hidden = true
 opt.number = true
+opt.splitbelow = true                       -- force all horizontal splits to go below current window
+opt.splitright = true                       -- force all vertical splits to go to the right of current window
 opt.relativenumber = true
 opt.ignorecase = true
+opt.pumheight = 10  -- pop up menu height
+opt.showtabline = 2                         -- always show tabs
+opt.smartcase = true                        -- smart case
 opt.shiftwidth = 4
-opt.updatetime = 100
+opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
+opt.updatetime = 300
 opt.autowriteall = true
 opt.smartindent = true
+opt.splitbelow = true                       -- force all horizontal splits to go below current window
+opt.splitright = true                       -- force all vertical splits to go to the right of current window
+opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
 opt.autoindent = true
+opt.wrap = false   -- display lines as one long line
+opt.cursorline = true                       -- highlight the current line
+opt.guifont = "monospace 17"
 opt.background = 'dark'
 opt.termguicolors = true
+opt.scrolloff = 8  -- is one of my fav
+opt.sidescrolloff = 8
 opt.undofile = true
+opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
 opt.wildmenu = true
 opt.lazyredraw = true
 opt.synmaxcol = 240
 opt.expandtab = true
-opt.completeopt = 'menu,menuone,noselect'
+opt.completeopt = 'menuone,noselect'
 g['bracey_server_allow_remote_connections'] = 1
-g['bracey_auto_start_browser'] = 0
+g['bracey_auto_start_browser'] = 1
 g['bracey_server_path'] = 'http://localhost'
 
 -------------
@@ -166,68 +198,113 @@ local line, col = unpack(api.nvim_win_get_cursor(0))
 return col ~= 0 and api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+local kind_icons = {
+  Text = "",
+  Method = "m",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "",
+  Interface = "",
+  Module = "",
+  Property = "",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
+}
+
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
-snippet = {
-  -- REQUIRED - you must specify a snippet engine
-  expand = function(args)
-     require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-  end,
-},
-mapping = {
-["<C-d>"] = cmp.mapping(function(fallback)
-  if cmp.visible() then
-    cmp.select_next_item()
-  elseif luasnip.expand_or_jumpable() then
-    luasnip.expand_or_jump()
-  elseif has_words_before() then
-    cmp.complete()
-  else
-    fallback()
-  end
-end, { "i", "s" }),
+    formatting = {
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+          -- Kind icons
+          vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+          -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+          vim_item.menu = ({
+            luasnip = "[Snippet]",
+            buffer = "[Buffer]",
+            path = "[Path]",
+          })[entry.source.name]
+          return vim_item
+        end,
+      },
+    documentation = {
+        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      },
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+         require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      end,
+    },
+    mapping = {
+    ["<C-d>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
 
-["<C-s>"] = cmp.mapping(function(fallback)
-  if cmp.visible() then
-    cmp.select_prev_item()
-  elseif luasnip.jumpable(-1) then
-    luasnip.jump(-1)
-  else
-    fallback()
-  end
-end, { "i", "s" }),
-  ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-  ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-  ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-  ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-  ['<C-e>'] = cmp.mapping({
-    i = cmp.mapping.abort(),
-    c = cmp.mapping.close(),
-  }),
-  ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items
+    ["<C-s>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+      ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+      ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+      ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+      ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+      ['<C-e>'] = cmp.mapping({
+        i = cmp.mapping.abort(),
+        c = cmp.mapping.close(),
+      }),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items
 
-},
-sources = cmp.config.sources({
-  { name = 'nvim_lsp' },
-  { name = 'luasnip' }, -- For luasnip users.
-}, {
-  { name = 'buffer' },
-})
-})
+    },
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' }, -- For luasnip users.
+    }, {
+      { name = 'buffer' },
+    })
+    })
 
 
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+    -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
 sources = {
   { name = 'buffer' }
 }
 })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
+    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline(':', {
 sources = cmp.config.sources({
   { name = 'path' }
 }, {

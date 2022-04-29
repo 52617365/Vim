@@ -18,15 +18,13 @@ use 'hrsh7th/cmp-buffer'
 use 'hrsh7th/cmp-path'
 use 'hrsh7th/cmp-cmdline'
 use 'hrsh7th/cmp-nvim-lua'
-use 'jiangmiao/auto-pairs'
-use 'tpope/vim-surround'
-use 'saadparwaiz1/cmp_luasnip'
 use 'vim-airline/vim-airline'
 use 'tpope/vim-fugitive'
 use 'morhetz/gruvbox'
 use 'rafamadriz/friendly-snippets'
 use 'hrsh7th/nvim-cmp'
 use 'L3MON4D3/LuaSnip'
+use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 use 'nvim-telescope/telescope-fzy-native.nvim'
 use 'ThePrimeagen/harpoon'
 use 'sbdchd/neoformat'
@@ -38,6 +36,11 @@ use 'onsails/lspkind.nvim'
 use 'tpope/vim-commentary'
 use 'turbio/bracey.vim'
 use 'preservim/nerdtree'
+use 'ryanoasis/vim-devicons'
+use { -- Nvim Treesitter configurations and abstraction layer
+ 'nvim-treesitter/nvim-treesitter',
+ run = ':TSUpdate',
+}
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
