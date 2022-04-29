@@ -3,9 +3,7 @@ require('plugins')
 local opt = vim.opt
 local fn = vim.fn
 local cmd = vim.cmd
-local g = vim.g
-local api = vim.api
-local opts = { noremap=true, silent=true }
+local g = vim.g local api = vim.api local opts = { noremap=true, silent=true }
 
 --------------
 -- Options --
@@ -44,6 +42,9 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 
 cmd([[
 colorscheme gruvbox
+set noswapfile
+set nobackup
+set nowritebackup
 set directory=$HOME/temp//
 set backupdir=$HOME/temp//
 set undodir=$HOME/temp//
@@ -59,7 +60,7 @@ vim.cmd([[
 set clipboard^=unnamed,unnamedplus
 ]])
 
-
+g.airline_powerline_fonts = true
 opt.tabstop = 4
 opt.shortmess:append("c")
 opt.hidden = true
