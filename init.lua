@@ -1,162 +1,16 @@
+require('options')
+require('mappings')
 require('plugins')
 
+-- TODO: Make a config file specifically for lsp.
 local opt = vim.opt
 local fn = vim.fn
 local cmd = vim.cmd
 local g = vim.g local api = vim.api local opts = { noremap=true, silent=true }
 
---------------
--- Options --
---------------
-g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "",
-    staged = "S",
-    unmerged = "",
-    renamed = "➜",
-    deleted = "",
-    untracked = "U",
-    ignored = "◌",
-  },
-  folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-  },
-}
-g.mapleader = ';'
-
-cmd([[
-augroup packer_user_config
-autocmd!
-autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-augroup end
-]])
-
-cmd([[
-augroup YankHighlight
-autocmd!
-autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
-augroup END
-]])
-
-cmd([[
-augroup fmt
-autocmd!
-autocmd BufWritePre * undojoin | Neoformat
-augroup END
-]])
-
--- Close the tab if NERDTree is the only window remaining in it.
--- Open nerd tree when nvim is opened.
-cmd([[
-autocmd VimEnter * NERDTree | wincmd p
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-]])
-
-cmd([[
-colorscheme gruvbox
-set noswapfile
-set nobackup
-set nowritebackup
-set directory=$HOME/temp//
-set backupdir=$HOME/temp//
-set undodir=$HOME/temp//
-au BufWritePre * :%s/\s\+$//e
-au BufEnter * set fo-=c fo-=r fo-=o
-set path=$PWD/**
-set nosol
-filetype plugin indent on
-syntax enable
-]])
-
-vim.cmd([[
-set clipboard^=unnamed,unnamedplus
-set iskeyword+=-
-]])
-
-opt.tabstop = 4
-opt.shortmess:append "c"
-opt.hidden = true
-opt.number = true
-opt.splitbelow = true                       -- force all horizontal splits to go below current window
-opt.splitright = true                       -- force all vertical splits to go to the right of current window
-opt.relativenumber = true
-opt.ignorecase = true
-opt.pumheight = 10  -- pop up menu height
-opt.showtabline = 2                         -- always show tabs
-opt.smartcase = true                        -- smart case
-opt.shiftwidth = 2
-opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
-opt.updatetime = 300
-opt.autowriteall = true
-opt.smartindent = true
-opt.splitbelow = true                       -- force all horizontal splits to go below current window
-opt.splitright = true                       -- force all vertical splits to go to the right of current window
-opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
-opt.autoindent = true
-opt.wrap = false   -- display lines as one long line
-opt.cursorline = true                       -- highlight the current line
-opt.guifont = "monospace 17"
-opt.background = 'dark'
-opt.termguicolors = true
-opt.scrolloff = 8  -- is one of my fav
-opt.sidescrolloff = 8
-opt.undofile = true
-opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
-opt.wildmenu = true
-opt.lazyredraw = true
-opt.synmaxcol = 240
-opt.expandtab = true
-opt.completeopt = 'menuone,noselect'
-g['bracey_server_allow_remote_connections'] = 1
-g['bracey_auto_start_browser'] = 1
-g['bracey_server_path'] = 'http://localhost'
-
 -------------
 -- Mappings --
 --------------
-
--- Saving stuff to save time
-api.nvim_set_keymap('n', '<C-s>', ':w<CR>', opts)
-api.nvim_set_keymap('i', '<C-s>', '<Esc>:w<CR>l', opts)
-api.nvim_set_keymap('v', '<C-s>', '<Esc>:w<CR>',  opts)
-
--- Remaps for vim-fugitive
-api.nvim_set_keymap('n', '<Leader>gs', ':G<CR>', opts)
-api.nvim_set_keymap('n', '<Leader>gc', ':Git commit<CR>', opts)
-api.nvim_set_keymap('n', '<Leader>gp', ':Git push<CR>', opts)
-api.nvim_set_keymap('n', '<Leader>gj', ':diffget //3<CR>', opts)
-api.nvim_set_keymap('n', '<Leader>gf', ':diffget //2<CR>', opts)
-
--- reload configuration file with :wc
-api.nvim_set_keymap('n', '<Leader>wc', 'source $HOME/.config/nvim/init.lua<CR>', opts)
-api.nvim_set_keymap('n', '<Leader>oc', 'source $HOME/.config/nvim/init.lua<CR>', opts)
-
--- Show harpoon files with leader leader
-api.nvim_set_keymap('n', '<Leader><Leader>', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
-api.nvim_set_keymap('n', '<Leader>a', ':lua require("harpoon.mark").add_file()<CR>', opts)
-api.nvim_set_keymap('n', '<Leader>1', ':lua require("harpoon.ui").nav_file(1)<CR>', opts)
-api.nvim_set_keymap('n', '<Leader>2', ':lua require("harpoon.ui").nav_file(2)<CR>', opts)
-api.nvim_set_keymap('n', '<Leader>3', ':lua require("harpoon.ui").nav_file(3)<CR>', opts)
-api.nvim_set_keymap('n', '<Leader>4', ':lua require("harpoon.ui").nav_file(4)<CR>', opts)
-
--- Comment code
-api.nvim_set_keymap('n', '<Leader>cc', ':Commentary<CR>', opts)
-api.nvim_set_keymap('n', '<Leader>cs', '{v}:Commentary<CR>', opts)
-
--- Debugger key bindings (nvim-dap)
--- TODO: ALL BINDINGS
-api.nvim_set_keymap('n', '<Alt>b', ':lua require("dap").toggle_breakpoint()<CR>', opts)
-api.nvim_set_keymap('n', '<Alt>so', ':lua require("dap").step_over()', opts)
-api.nvim_set_keymap('n', '<Alt>si', ':lua require("dap").step_into()', opts)
-api.nvim_set_keymap('n', '<Alt>c', ':lua require("dap").continue()', opts)
-api.nvim_set_keymap('n', '<Alt>o', ':lua require("dap").repl.open()', opts)
-
 
 -- Telescope.nvim
 require('telescope').setup {
@@ -176,22 +30,6 @@ defaults = {
     }
 }
 require('telescope').load_extension('fzy_native')
-
-api.nvim_set_keymap('n', '<Leader>ff', ':Telescope find_files<cr>', opts)
-api.nvim_set_keymap('n', '<Leader>fg', ':Telescope live_grep<cr>', opts)
-api.nvim_set_keymap('n', '<Leader>fb', ':Telescope buffers<cr>', opts)
-api.nvim_set_keymap('n', '<Leader>fh', ':Telescope help_tags<cr>', opts)
-
--- Adding hopping around the file into arrow keys with ctrl combination
-api.nvim_set_keymap('n', '<C-j>', '<C-d>', opts)
-api.nvim_set_keymap('n', '<C-k>', '<C-u>', opts)
-api.nvim_set_keymap('n', '<C-h>', '3b', opts)
-api.nvim_set_keymap('n', '<C-l>', '3w', opts)
-
--- lspconfig keybindings
-api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-api.nvim_set_keymap('n', 'se', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
 -- Setup nvim-cmp.
 local has_words_before = function()
