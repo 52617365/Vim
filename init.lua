@@ -76,6 +76,7 @@ syntax enable
 
 vim.cmd([[
 set clipboard^=unnamed,unnamedplus
+set iskeyword+=-
 ]])
 
 opt.tabstop = 4
@@ -89,7 +90,7 @@ opt.ignorecase = true
 opt.pumheight = 10  -- pop up menu height
 opt.showtabline = 2                         -- always show tabs
 opt.smartcase = true                        -- smart case
-opt.shiftwidth = 4
+opt.shiftwidth = 2
 opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
 opt.updatetime = 300
 opt.autowriteall = true
