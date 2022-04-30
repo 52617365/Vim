@@ -8,26 +8,6 @@ local opts = { noremap=true, silent=true }
 --------------
 -- Options --
 --------------
-g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "",
-    staged = "S",
-    unmerged = "",
-    renamed = "➜",
-    deleted = "",
-    untracked = "U",
-    ignored = "◌",
-  },
-  folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-  },
-}
 g.mapleader = ';'
 
 cmd([[
@@ -49,17 +29,11 @@ augroup END
 cmd([[
 autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
-autocmd BufWritePre *.js lua vim.lsp.buf.formatting()
-autocmd BufWritePre *.ts lua vim.lsp.buf.formatting()
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting()
-autocmd BufWritePre *.h lua vim.lsp.buf.formatting()
-autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting()
-autocmd BufWritePre *.php lua vim.lsp.buf.formatting()
 ]])
 
+--colorscheme gruvbox
 cmd([[
-colorscheme gruvbox
+colorscheme deus
 set noswapfile
 set nobackup
 set nowritebackup
@@ -79,6 +53,7 @@ set clipboard^=unnamed,unnamedplus
 set iskeyword+=-
 ]])
 
+g.deus_termcolors=256
 opt.tabstop = 4
 opt.shortmess:append "c"
 opt.hidden = true
