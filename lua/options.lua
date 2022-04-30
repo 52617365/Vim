@@ -8,6 +8,7 @@ local opts = { noremap=true, silent=true }
 --------------
 -- Options --
 --------------
+
 g.mapleader = ';'
 
 cmd([[
@@ -31,6 +32,7 @@ autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 ]])
 
+
 --colorscheme gruvbox
 cmd([[
 colorscheme deus
@@ -45,7 +47,7 @@ au BufEnter * set fo-=c fo-=r fo-=o
 set path=$PWD/**
 set nosol
 filetype plugin indent on
-syntax enable
+syntax on
 ]])
 
 vim.cmd([[
