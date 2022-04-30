@@ -44,9 +44,6 @@ use {'mg979/vim-visual-multi', branch='master'}
 use 'mfussenegger/nvim-dap'
 use 'rcarriga/nvim-dap-ui'
 
--- Formatting plugin that is shit.
-use 'sbdchd/neoformat'
-
 use 'vim-airline/vim-airline'
 use 'morhetz/gruvbox'
 use 'ThePrimeagen/harpoon'

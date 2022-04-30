@@ -44,18 +44,18 @@ autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", ti
 augroup END
 ]])
 
-cmd([[
-augroup fmt
-autocmd!
-autocmd BufWritePre * undojoin | Neoformat
-augroup END
-]])
-
 -- Close the tab if NERDTree is the only window remaining in it.
 -- Open nerd tree when nvim is opened.
 cmd([[
 autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
+autocmd BufWritePre *.js lua vim.lsp.buf.formatting()
+autocmd BufWritePre *.ts lua vim.lsp.buf.formatting()
+autocmd BufWritePre *.rs lua vim.lsp.buf.formatting()
+autocmd BufWritePre *.h lua vim.lsp.buf.formatting()
+autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting()
+autocmd BufWritePre *.php lua vim.lsp.buf.formatting()
 ]])
 
 cmd([[
