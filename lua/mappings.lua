@@ -22,7 +22,6 @@ api.nvim_set_keymap('n', '<Leader>gf', ':diffget //2<CR>', opts)
 
 -- reload configuration file with :wc
 api.nvim_set_keymap('n', '<Leader>wc', 'source $HOME/.config/nvim/init.lua<CR>', opts)
-api.nvim_set_keymap('n', '<Leader>oc', 'source $HOME/.config/nvim/init.lua<CR>', opts)
 
 -- Show harpoon files with leader leader
 api.nvim_set_keymap('n', '<Leader><Leader>', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
@@ -44,17 +43,10 @@ api.nvim_set_keymap('n', '<Alt>si', ':lua require("dap").step_into()', opts)
 api.nvim_set_keymap('n', '<Alt>c', ':lua require("dap").continue()', opts)
 api.nvim_set_keymap('n', '<Alt>o', ':lua require("dap").repl.open()', opts)
 
-
 api.nvim_set_keymap('n', '<Leader>ff', ':Telescope find_files<cr>', opts)
 api.nvim_set_keymap('n', '<Leader>fg', ':Telescope live_grep<cr>', opts)
 api.nvim_set_keymap('n', '<Leader>fb', ':Telescope buffers<cr>', opts)
 api.nvim_set_keymap('n', '<Leader>fh', ':Telescope help_tags<cr>', opts)
-
--- Adding hopping around the file into arrow keys with ctrl combination
-api.nvim_set_keymap('n', '<C-j>', '<C-d>', opts)
-api.nvim_set_keymap('n', '<C-k>', '<C-u>', opts)
-api.nvim_set_keymap('n', '<C-h>', '3b', opts)
-api.nvim_set_keymap('n', '<C-l>', '3w', opts)
 
 -- lspconfig keybindings
 api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
