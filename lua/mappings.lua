@@ -9,6 +9,7 @@ local g = vim.g
 local api = vim.api
 local opts = { noremap=true, silent=true }
 
+api.nvim_set_keymap('n', 'ff', ':G<CR>', opts)
 -- Saving stuff to save time
 api.nvim_set_keymap('n', '<C-s>', ':w<CR>', opts)
 api.nvim_set_keymap('i', '<C-s>', '<Esc>:w<CR>l', opts)
