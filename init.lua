@@ -6,7 +6,9 @@ require('plugins')
 local opt = vim.opt
 local fn = vim.fn
 local cmd = vim.cmd
-local g = vim.g local api = vim.api local opts = { noremap=true, silent=true }
+local g = vim.g
+local api = vim.api
+local opts = { noremap=true, silent=true }
 
 -------------
 -- Mappings --
@@ -65,8 +67,17 @@ local kind_icons = {
   TypeParameter = "",
 }
 
+
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+
+ -- Autopairs
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+-- add a lisp filetype (wrap my-function), FYI: Hardcoded = { "clojure", "clojurescript", "fennel", "janet" }
+cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
+-- Autopairs --
+
 require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({

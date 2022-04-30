@@ -32,6 +32,7 @@ use 'sbdchd/neoformat'
 use 'folke/todo-comments.nvim'
 use 'github/copilot.vim'
 use 'mfussenegger/nvim-dap'
+use {'mg979/vim-visual-multi', branch='master'}
 use 'rcarriga/nvim-dap-ui'
 use 'onsails/lspkind.nvim'
 use 'tpope/vim-commentary'
@@ -40,7 +41,7 @@ use 'preservim/nerdtree'
 use 'ryanoasis/vim-devicons'
 use { -- Nvim Treesitter configurations and abstraction layer
  'nvim-treesitter/nvim-treesitter',
- run = ':TSUpdate',
+  run = ':TSUpdate',
 }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

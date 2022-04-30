@@ -1,7 +1,9 @@
 local opt = vim.opt
 local fn = vim.fn
 local cmd = vim.cmd
-local g = vim.g local api = vim.api local opts = { noremap=true, silent=true }
+local g = vim.g
+local api = vim.api
+local opts = { noremap=true, silent=true }
 
 --------------
 -- Options --
