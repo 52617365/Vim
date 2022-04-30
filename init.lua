@@ -81,6 +81,7 @@ cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
 require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
+    preselect = cmp.PreselectMode.None,
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
@@ -128,21 +129,23 @@ cmp.setup({
     })
 
 
-    -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
---    cmp.setup.cmdline('/', {
---    sources = {
---      { name = 'buffer' }
---    }
---    })
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
 
---    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
---    cmp.setup.cmdline(':', {
---      sources = cmp.config.sources({
---    --    { name = 'path' }
---      }, {
---    --    { name = 'cmdline' }
---      })
---      })
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
 
 -- LSP --
 local lsp_installer = require("nvim-lsp-installer")
