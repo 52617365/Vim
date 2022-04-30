@@ -43,7 +43,7 @@ use {'mg979/vim-visual-multi', branch='master'}
 -- Debugging thing that probably will never be used.
 use 'mfussenegger/nvim-dap'
 use 'rcarriga/nvim-dap-ui'
-
+use 'ajmwagar/vim-deus'
 use 'vim-airline/vim-airline'
 use 'morhetz/gruvbox'
 use 'ThePrimeagen/harpoon'
