@@ -8,6 +8,7 @@ local cmd = vim.cmd
 local g = vim.g
 local api = vim.api
 local opts = { noremap=true, silent=true }
+local non_silent_opts = { noremap=true, silent=false }
 
 -- Saving stuff to save time
 api.nvim_set_keymap('n', '<C-s>', ':w<CR>', opts)
@@ -55,5 +56,8 @@ api.nvim_set_keymap('n', 'se', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
 -- Google searches
-api.nvim_set_keymap('n', '<Leader>s', '<Plug>SearchNormal', opts)
-api.nvim_set_keymap('v', '<Leader>s', '<Plug>SearchVisual',  opts)
+--api.nvim_set_keymap('n', '<Leader>s', '<Plug>SearchNormal', opts)
+api.nvim_set_keymap('n', '<Leader>s', ':BrowserSearch ', non_silent_opts)
+--api.nvim_set_keymap('v', '<Leader>s', '<Plug>SearchVisual',  opts)
+api.nvim_set_keymap('v', '<Leader>s', ':BrowserSearch<CR>',  opts)
+
