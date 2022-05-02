@@ -54,7 +54,7 @@ api.nvim_command('colorscheme deus')
 --api.nvim_command('set path=$PWD/**')
 
 opt.path = "$PWD/**"
-opt.undodir = os.getenv('HOME/temp')
+opt.undodir = os.getenv('HOME') .. "/temp/"
 opt.sol = true
 opt.clipboard = 'unnamedplus'
 opt.backup = false
