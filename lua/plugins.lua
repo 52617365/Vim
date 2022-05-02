@@ -41,7 +41,7 @@ use 'folke/todo-comments.nvim'
 use {'mg979/vim-visual-multi', branch='master'}
 
 -- Search from vim because I'm lazy.
-use 'voldikss/vim-browser-search'
+use '52617365/vim-browser-search'
 
 -- Debugging thing that probably will never be used.
 use 'mfussenegger/nvim-dap'
