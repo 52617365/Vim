@@ -3,6 +3,7 @@ local fn = vim.fn
 local cmd = vim.cmd
 local g = vim.g
 local api = vim.api
+local o = vim.o
 local opts = { noremap=true, silent=true }
 
 --------------
@@ -13,49 +14,25 @@ g.mapleader = ';'
 
 cmd([[
 augroup packer_user_config
-autocmd!
-autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  autocmd!
+  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+augroup end
+
+augroup YankHighlight
+  autocmd!
+  autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
+augroup END
+
+augroup nerdtree
+  autocmd VimEnter * NERDTree | wincmd p
+  autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 augroup end
 ]])
 
-cmd([[
-augroup YankHighlight
-autocmd!
-autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
-augroup END
-]])
-
-
--- Close the tab if NERDTree is the only window remaining in it.
--- Open nerd tree when nvim is opened.
-cmd([[
-autocmd VimEnter * NERDTree | wincmd p
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-]])
-
 --colorscheme gruvbox
-cmd([[
-colorscheme deus
-set noswapfile
-set nobackup
-set nowritebackup
-set directory=$HOME/temp//
-set backupdir=$HOME/temp//
-set undodir=$HOME/temp//
-au BufWritePre * :%s/\s\+$//e
-au BufEnter * set fo-=c fo-=r fo-=o
-set path=$PWD/**
-set nosol
-filetype plugin indent on
-syntax on
-]])
 
-vim.cmd([[
-set clipboard^=unnamed,unnamedplus
-set iskeyword+=-
-]])
 
-vim.g.browser_search_engines = {
+g.browser_search_engines = {
    duckduckgo='https://duckduckgo.com/?q=%s',
    brave='https://search.brave.com/search?q=%s',
    phpdocs='https://www.php.net/search.php?show=quickref&pattern=%s',
@@ -69,9 +46,22 @@ vim.g.browser_search_engines = {
    youtube='https=//www.youtube.com/results?search_query=%s&page=&utm_source=opensearch',
 }
 
+
+--set nobackup
+--set nowritebackup
 g.deus_termcolors=256
+api.nvim_command('colorscheme deus')
+--api.nvim_command('set path=$PWD/**')
+
+opt.path = "$PWD/**"
+opt.undodir = os.getenv('HOME/temp')
+opt.sol = true
+opt.clipboard = 'unnamedplus'
+opt.backup = false
+opt.swapfile = false
 opt.tabstop = 4
-opt.shortmess:append "c"
+opt.iskeyword:append("-")
+opt.shortmess:append("c")
 opt.hidden = true
 opt.number = true
 opt.splitbelow = true                       -- force all horizontal splits to go below current window
@@ -101,7 +91,7 @@ opt.undofile = true
 opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
 opt.wildmenu = true
 opt.lazyredraw = true
-opt.synmaxcol = 240
+opt.synmaxcol = 300
 opt.expandtab = true
 opt.completeopt = 'menuone,noselect'
 g['bracey_server_allow_remote_connections'] = 1
