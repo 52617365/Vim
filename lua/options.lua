@@ -55,6 +55,7 @@ set clipboard^=unnamed,unnamedplus
 set iskeyword+=-
 ]])
 
+g.vim_g_command = "Go"
 g.deus_termcolors=256
 opt.tabstop = 4
 opt.shortmess:append "c"
