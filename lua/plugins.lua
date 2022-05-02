@@ -40,6 +40,9 @@ use 'folke/todo-comments.nvim'
 -- Multi cursor thingy.
 use {'mg979/vim-visual-multi', branch='master'}
 
+-- Google from vim because I'm lazy.
+use 'szw/vim-g'
+
 -- Debugging thing that probably will never be used.
 use 'mfussenegger/nvim-dap'
 use 'rcarriga/nvim-dap-ui'

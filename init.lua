@@ -1,6 +1,6 @@
+require('plugins')
 require('options')
 require('mappings')
-require('plugins')
 
 -- TODO: Make a config file specifically for lsp.
 local opt = vim.opt
