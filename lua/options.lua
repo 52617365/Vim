@@ -25,13 +25,13 @@ autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", ti
 augroup END
 ]])
 
+
 -- Close the tab if NERDTree is the only window remaining in it.
 -- Open nerd tree when nvim is opened.
 cmd([[
 autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 ]])
-
 
 --colorscheme gruvbox
 cmd([[
@@ -55,7 +55,21 @@ set clipboard^=unnamed,unnamedplus
 set iskeyword+=-
 ]])
 
-g.vim_g_command = "Go"
+vim.g.browser_search_engines = {
+   duckduckgo='https://duckduckgo.com/?q=%s',
+   brave='https://search.brave.com/search?q=%s',
+   php='https://www.php.net/search.php?show=quickref&pattern=%s',
+   rust='https://doc.rust-lang.org/std/?search=%s',
+   mozilla='https://developer.mozilla.org/en-US/search?q=%s',
+   github='https://github.com/search?q=%s',
+   google='https://google.com/search?q=%s',
+   stackoverflow='https://stackoverflow.com/search?q=%s',
+   translate='https://translate.google.com/?sl=auto&tl=it&text=%s',
+   wikipedia='https://en.wikipedia.org/wiki/%s',
+   youtube='https=//www.youtube.com/results?search_query=%s&page=&utm_source=opensearch',
+}
+
+
 g.deus_termcolors=256
 opt.tabstop = 4
 opt.shortmess:append "c"
