@@ -53,3 +53,7 @@ api.nvim_set_keymap('n', '<Leader>fh', ':Telescope help_tags<cr>', opts)
 api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 api.nvim_set_keymap('n', 'se', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+
+-- Google searches
+api.nvim_set_keymap('n', '<Leader>s', '<Plug>SearchNormal', opts)
+api.nvim_set_keymap('v', '<Leader>s', '<Plug>SearchVisual',  opts)
