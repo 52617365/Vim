@@ -58,9 +58,9 @@ set iskeyword+=-
 vim.g.browser_search_engines = {
    duckduckgo='https://duckduckgo.com/?q=%s',
    brave='https://search.brave.com/search?q=%s',
-   php='https://www.php.net/search.php?show=quickref&pattern=%s',
-   rust='https://doc.rust-lang.org/std/?search=%s',
-   mozilla='https://developer.mozilla.org/en-US/search?q=%s',
+   phpdocs='https://www.php.net/search.php?show=quickref&pattern=%s',
+   rustdocs='https://doc.rust-lang.org/std/?search=%s',
+   mozilladocs='https://developer.mozilla.org/en-US/search?q=%s',
    github='https://github.com/search?q=%s',
    google='https://google.com/search?q=%s',
    stackoverflow='https://stackoverflow.com/search?q=%s',
@@ -68,7 +68,6 @@ vim.g.browser_search_engines = {
    wikipedia='https://en.wikipedia.org/wiki/%s',
    youtube='https=//www.youtube.com/results?search_query=%s&page=&utm_source=opensearch',
 }
-
 
 g.deus_termcolors=256
 opt.tabstop = 4
