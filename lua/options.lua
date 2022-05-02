@@ -31,24 +31,21 @@ augroup end
 
 --colorscheme gruvbox
 
+-- The settings I'm using but I directly forked the plugin and changed em to my likings.
+--g.browser_search_engines = {
+--   duckduckgo='https://duckduckgo.com/?q=%s',
+--   brave='https://search.brave.com/search?q=%s',
+--   phpdocs='https://www.php.net/search.php?show=quickref&pattern=%s',
+--   rustdocs='https://doc.rust-lang.org/std/?search=%s',
+--   mozilladocs='https://developer.mozilla.org/en-US/search?q=%s',
+--   github='https://github.com/search?q=%s',
+--   google='https://google.com/search?q=%s',
+--   stackoverflow='https://stackoverflow.com/search?q=%s',
+--   translate='https://translate.google.com/?sl=auto&tl=it&text=%s',
+--   wikipedia='https://en.wikipedia.org/wiki/%s',
+--   youtube='https=//www.youtube.com/results?search_query=%s&page=&utm_source=opensearch',
+--}
 
-g.browser_search_engines = {
-   duckduckgo='https://duckduckgo.com/?q=%s',
-   brave='https://search.brave.com/search?q=%s',
-   phpdocs='https://www.php.net/search.php?show=quickref&pattern=%s',
-   rustdocs='https://doc.rust-lang.org/std/?search=%s',
-   mozilladocs='https://developer.mozilla.org/en-US/search?q=%s',
-   github='https://github.com/search?q=%s',
-   google='https://google.com/search?q=%s',
-   stackoverflow='https://stackoverflow.com/search?q=%s',
-   translate='https://translate.google.com/?sl=auto&tl=it&text=%s',
-   wikipedia='https://en.wikipedia.org/wiki/%s',
-   youtube='https=//www.youtube.com/results?search_query=%s&page=&utm_source=opensearch',
-}
-
-
---set nobackup
---set nowritebackup
 g.deus_termcolors=256
 api.nvim_command('colorscheme deus')
 --api.nvim_command('set path=$PWD/**')
