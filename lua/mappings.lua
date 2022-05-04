@@ -23,7 +23,7 @@ api.nvim_set_keymap('n', '<Leader>gj', ':diffget //3<CR>', opts)
 api.nvim_set_keymap('n', '<Leader>gf', ':diffget //2<CR>', opts)
 
 -- reload configuration file with :wc
-api.nvim_set_keymap('n', '<Leader>wc', 'source $HOME/.config/nvim/init.lua<CR>', opts)
+api.nvim_set_keymap('n', '<Leader>wc', ':source $HOME/.config/nvim/init.lua<CR>', opts)
 
 -- Show harpoon files with leader leader
 api.nvim_set_keymap('n', '<Leader><Leader>', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
