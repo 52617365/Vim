@@ -20,19 +20,13 @@ return require('packer').startup(function(use)
   use 'nvim-telescope/telescope-fzy-native.nvim'
 
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
-  
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
 
   -- cmp
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/cmp-nvim-lua'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 
   -- Gods plugins
   use 'tpope/vim-fugitive'
@@ -47,6 +41,7 @@ return require('packer').startup(function(use)
   -- Search from vim because I'm lazy.
   use '52617365/vim-browser-search'
 
+  -- Colorscheme
   use 'ajmwagar/vim-deus'
 
   use 'ThePrimeagen/harpoon'
