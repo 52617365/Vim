@@ -1,3 +1,6 @@
 require('config/telescope')
 require('config/lsp')
 require('config/cmp')
+require('config/indent_blankline')
+require('config/gitsigns')
+require('config/treesitter')
