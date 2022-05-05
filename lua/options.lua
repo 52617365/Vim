@@ -1,10 +1,7 @@
 local opt = vim.opt
-local fn = vim.fn
 local cmd = vim.cmd
 local g = vim.g
 local api = vim.api
-local o = vim.o
-local opts = { noremap=true, silent=true }
 
 --------------
 -- Options --
@@ -28,23 +25,6 @@ augroup nerdtree
   autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 augroup end
 ]])
-
---colorscheme gruvbox
-
--- The settings I'm using but I directly forked the plugin and changed em to my likings.
---g.browser_search_engines = {
---   duckduckgo='https://duckduckgo.com/?q=%s',
---   brave='https://search.brave.com/search?q=%s',
---   phpdocs='https://www.php.net/search.php?show=quickref&pattern=%s',
---   rustdocs='https://doc.rust-lang.org/std/?search=%s',
---   mozilladocs='https://developer.mozilla.org/en-US/search?q=%s',
---   github='https://github.com/search?q=%s',
---   google='https://google.com/search?q=%s',
---   stackoverflow='https://stackoverflow.com/search?q=%s',
---   translate='https://translate.google.com/?sl=auto&tl=it&text=%s',
---   wikipedia='https://en.wikipedia.org/wiki/%s',
---   youtube='https=//www.youtube.com/results?search_query=%s&page=&utm_source=opensearch',
---}
 
 g.deus_termcolors=256
 api.nvim_command('colorscheme deus')
@@ -74,17 +54,14 @@ opt.smartindent = true
 opt.splitbelow = true                       -- force all horizontal splits to go below current window
 opt.splitright = true                       -- force all vertical splits to go to the right of current window
 opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
-opt.autoindent = true
 opt.wrap = false   -- display lines as one long line
 opt.cursorline = true                       -- highlight the current line
 opt.guifont = "monospace 17"
-opt.background = 'dark'
 opt.termguicolors = true
 opt.scrolloff = 8  -- is one of my fav
 opt.sidescrolloff = 8
 opt.undofile = true
 opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
-opt.wildmenu = true
 opt.lazyredraw = true
 opt.synmaxcol = 300
 opt.expandtab = true
