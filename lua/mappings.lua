@@ -28,10 +28,6 @@ api.nvim_set_keymap('n', '<Leader>2', ':lua require("harpoon.ui").nav_file(2)<CR
 api.nvim_set_keymap('n', '<Leader>3', ':lua require("harpoon.ui").nav_file(3)<CR>', opts)
 api.nvim_set_keymap('n', '<Leader>4', ':lua require("harpoon.ui").nav_file(4)<CR>', opts)
 
--- Comment code
-api.nvim_set_keymap('n', '<Leader>cc', ':Commentary<CR>', opts)
-api.nvim_set_keymap('n', '<Leader>cs', '{v}:Commentary<CR>', opts)
-
 -- Debugger key bindings (nvim-dap)
 -- TODO: ALL BINDINGS
 api.nvim_set_keymap('n', '<Alt>b', ':lua require("dap").toggle_breakpoint()<CR>', opts)
