@@ -1,7 +1,3 @@
-local opt = vim.opt
-local fn = vim.fn
-local cmd = vim.cmd
-local g = vim.g
 local api = vim.api
 local opts = { noremap = true, silent = true }
 
@@ -28,7 +24,14 @@ end
 local servers = {"rust_analyzer", "tsserver", "bashls", "cssmodules_ls", "html", "intelephense"}
 require("nvim-lsp-installer").setup{
   automatic_installation = true,
-  ensure_installed = servers
+  ensure_installed = servers,
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
+    }
+  }
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
