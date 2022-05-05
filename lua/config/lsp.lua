@@ -5,8 +5,6 @@ local g = vim.g
 local api = vim.api
 local opts = { noremap = true, silent = true }
 
--- LSP --
-require("nvim-lsp-installer").setup{}
 local lspconfig = require("lspconfig")
 
 local on_attach = function(_, bufnr)
@@ -23,18 +21,23 @@ local on_attach = function(_, bufnr)
   api.nvim_buf_set_keymap(bufnr, 'n', '<space>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   --  api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   api.nvim_buf_set_keymap(bufnr, 'v', '<space>f', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
-
   --  vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
 end
+
+-- LSP --
+local servers = {"rust_analyzer", "tsserver", "bashls", "cssmodules_ls", "html", "intelephense"}
+require("nvim-lsp-installer").setup{
+  automatic_installation = true,
+  ensure_installed = servers
+}
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-lspconfig.tsserver.setup {on_attach = on_attach, capabilities = capabilities}
-lspconfig.bashls.setup {on_attach = on_attach, capabilities = capabilities}
-lspconfig.cssmodules_ls.setup {on_attach = on_attach, capabilities = capabilities}
-lspconfig.html.setup {on_attach = on_attach, capabilities = capabilities}
-lspconfig.intelephense.setup {on_attach = on_attach, capabilities = capabilities}
+for _, server in ipairs(servers) do
+  require('lspconfig')[server].setup {capabilities = capabilities, on_attach = on_attach}
+end
+
 
 lspconfig.sumneko_lua.setup {
   on_attach = on_attach,
@@ -44,8 +47,6 @@ lspconfig.sumneko_lua.setup {
       runtime = {
         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
         version = 'LuaJIT',
-        -- Setup your lua path
-        path = runtime_path,
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
