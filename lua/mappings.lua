@@ -1,10 +1,6 @@
 -------------
 -- Mappings --
 --------------
-local opt = vim.opt
-local fn = vim.fn
-local cmd = vim.cmd
-local g = vim.g
 local api = vim.api
 local opts = { noremap=true, silent=true }
 local non_silent_opts = { noremap=true, silent=false }
@@ -15,8 +11,8 @@ api.nvim_set_keymap('i', '<C-s>', '<Esc>:w<CR>', opts)
 api.nvim_set_keymap('v', '<C-s>', '<Esc>:w<CR>',  opts)
 
 -- Remaps for vim-fugitive
-api.nvim_set_keymap('n', '<Leader>gs', ':G<CR>', opts)
-api.nvim_set_keymap('n', '<Leader>gc', ':Git commit<CR>', opts)
+api.nvim_set_keymap('n', '<Leader>gs', ':0G<CR>', opts)
+api.nvim_set_keymap('n', '<Leader>gc', ':Gwrite<CR>', opts)
 api.nvim_set_keymap('n', '<Leader>gp', ':Git push<CR>', opts)
 api.nvim_set_keymap('n', '<Leader>gj', ':diffget //3<CR>', opts)
 api.nvim_set_keymap('n', '<Leader>gf', ':diffget //2<CR>', opts)
