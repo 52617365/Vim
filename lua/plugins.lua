@@ -1,5 +1,6 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
@@ -26,8 +27,9 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/cmp-nvim-lua'
   use 'L3MON4D3/LuaSnip'
-  use 'rafamadriz/friendly-snippets'
+  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use 'simrat39/rust-tools.nvim'
 
   -- Gods plugins
   use 'tpope/vim-fugitive'
@@ -44,8 +46,9 @@ return require('packer').startup(function(use)
   use '52617365/vim-browser-search'
 
   -- Debugging thing that probably will never be used.
-  use 'mfussenegger/nvim-dap'
-  use 'rcarriga/nvim-dap-ui'
+  -- use 'mfussenegger/nvim-dap'
+  -- use 'rcarriga/nvim-dap-ui'
+
   use 'ajmwagar/vim-deus'
   use 'vim-airline/vim-airline'
   use 'morhetz/gruvbox'
