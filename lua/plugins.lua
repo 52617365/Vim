@@ -19,7 +19,10 @@ return require('packer').startup(function(use)
   }
   use 'nvim-telescope/telescope-fzy-native.nvim'
 
-  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
 
   -- cmp
