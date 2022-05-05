@@ -48,8 +48,6 @@ augroup end
 
 g.deus_termcolors=256
 api.nvim_command('colorscheme deus')
---api.nvim_command('set path=$PWD/**')
-api.nvim_command('highlight CopilotSuggestion guifg=#555555 ctermfg=8')
 opt.path = "$PWD/**"
 opt.undodir = os.getenv('HOME') .. "/temp/"
 opt.sol = true
@@ -91,6 +89,3 @@ opt.lazyredraw = true
 opt.synmaxcol = 300
 opt.expandtab = true
 opt.completeopt = 'menuone,noselect'
-g['bracey_server_allow_remote_connections'] = 1
-g['bracey_auto_start_browser'] = 1
-g['bracey_server_path'] = 'http://localhost'
