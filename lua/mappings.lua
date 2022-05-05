@@ -13,7 +13,7 @@ api.nvim_set_keymap('v', '<C-s>', '<Esc>:w<CR>',  opts)
 -- Remaps for vim-fugitive
 api.nvim_set_keymap('n', '<Leader>gs', ':0G<CR>', opts)
 api.nvim_set_keymap('n', '<Leader>gc', ':Gwrite<CR>', opts)
-api.nvim_set_keymap('n', '<Leader>gp', ':Git push<CR>', opts)
+api.nvim_set_keymap('n', '<Leader>gp', ':Git! push<CR>', opts)
 api.nvim_set_keymap('n', '<Leader>gj', ':diffget //3<CR>', opts)
 api.nvim_set_keymap('n', '<Leader>gf', ':diffget //2<CR>', opts)
 
