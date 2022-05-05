@@ -15,9 +15,13 @@ return require('packer').startup(function(use)
   -- Telescope fuzzy finder
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { 'nvim-lua/plenary.nvim' }
   }
   use 'nvim-telescope/telescope-fzy-native.nvim'
+
+  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+  
+  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
 
   -- cmp
   use 'hrsh7th/nvim-cmp'
@@ -29,15 +33,13 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use 'simrat39/rust-tools.nvim'
 
   -- Gods plugins
   use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
 
-  -- Some twerking shit for todo comments.
-  use 'folke/todo-comments.nvim'
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Multi cursor thingy.
   use {'mg979/vim-visual-multi', branch='master'}
@@ -45,23 +47,20 @@ return require('packer').startup(function(use)
   -- Search from vim because I'm lazy.
   use '52617365/vim-browser-search'
 
-  -- Debugging thing that probably will never be used.
-  -- use 'mfussenegger/nvim-dap'
-  -- use 'rcarriga/nvim-dap-ui'
-
   use 'ajmwagar/vim-deus'
-  use 'vim-airline/vim-airline'
-  use 'morhetz/gruvbox'
+
   use 'ThePrimeagen/harpoon'
+
   use 'github/copilot.vim'
-  use 'onsails/lspkind.nvim'
-  use 'turbio/bracey.vim'
+
   use 'preservim/nerdtree'
   use 'ryanoasis/vim-devicons'
+
   use { -- Nvim Treesitter configurations and abstraction layer
    'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
   }
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

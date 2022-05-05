@@ -1,7 +1,6 @@
 -------------
 -- Mappings --
 --------------
-
 local opt = vim.opt
 local fn = vim.fn
 local cmd = vim.cmd

@@ -1,10 +1,3 @@
-local opt = vim.opt
-local fn = vim.fn
-local cmd = vim.cmd
-local g = vim.g
-local api = vim.api
-local opts = { noremap = true, silent = true }
-
 -- Luasnip
 local luasnip = require("luasnip")
 
@@ -48,27 +41,4 @@ cmp.setup {
       { name = 'luasnip' },
       { name = 'buffer' },
     },
-  }
-
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline('/', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  }
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
-})
-
--- Autopairs
----- If you want insert `(` after select function or method item
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+}
