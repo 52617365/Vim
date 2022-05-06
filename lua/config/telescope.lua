@@ -1,14 +1,8 @@
--- TODO: Make a config file specifically for lsp.
-local opt = vim.opt
-local fn = vim.fn
-local cmd = vim.cmd
-local g = vim.g
-local api = vim.api
-local opts = { noremap = true, silent = true }
-
 -------------
 -- Mappings --
 --------------
+-- Trouble and telescope integration.
+local trouble = require("trouble.providers.telescope")
 -- Telescope.nvim
 require('telescope').setup {
   defaults = {
@@ -18,6 +12,10 @@ require('telescope').setup {
     file_previewer = require('telescope.previewers').vim_buffer_cat.new,
     grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
     qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+    mappings = {
+      i = { ["<c-t>"] = trouble.open_with_trouble },
+      n = { ["<c-t>"] = trouble.open_with_trouble },
+    },
   },
   extensions = {
     fzy_native = {
