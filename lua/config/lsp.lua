@@ -21,21 +21,21 @@ local on_attach = function(_, bufnr)
   --
   -- This next part is to open lsp diagnostics into a floating window ON HOVER
   vim.api.nvim_create_autocmd("CursorHold", {
-  buffer = bufnr,
-  callback = function()
-    local diagnostic_opts = {
-      focusable = false,
-      close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-      border = 'rounded',
-      source = 'always',
-      prefix = ' ',
-      scope = 'cursor',
-    }
-  if vim.diagnostic.open_float(nil, diagnostic_opts) then
-    vim.lsp.buf.code_action(nil)
-  end
-  end
-})
+    buffer = bufnr,
+    callback = function()
+      local diagnostic_opts = {
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        border = 'rounded',
+        source = 'always',
+        prefix = ' ',
+        scope = 'cursor',
+      }
+      if vim.diagnostic.open_float(nil, diagnostic_opts) then
+        vim.lsp.buf.code_action(nil)
+      end
+    end
+  })
 end
 
 -- LSP --
@@ -64,19 +64,19 @@ end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    -- This will disable virtual text, like doing:
-    virtual_text = false,
+  -- This will disable virtual text, like doing:
+  virtual_text = false,
 
-    -- This is similar to:
-    -- let g:diagnostic_show_sign = 1
-    -- To configure sign display,
-    --  see: ":help vim.lsp.diagnostic.set_signs()"
-    signs = true,
+  -- This is similar to:
+  -- let g:diagnostic_show_sign = 1
+  -- To configure sign display,
+  --  see: ":help vim.lsp.diagnostic.set_signs()"
+  signs = true,
 
-    -- This is similar to:
-    -- "let g:diagnostic_insert_delay = 1"
-    update_in_insert = false,
-  }
+  -- This is similar to:
+  -- "let g:diagnostic_insert_delay = 1"
+  update_in_insert = false,
+}
 )
 
 -- lspconfig.rust_analyzer.setup{
