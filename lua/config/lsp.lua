@@ -31,7 +31,9 @@ local on_attach = function(_, bufnr)
       prefix = ' ',
       scope = 'cursor',
     }
-    vim.diagnostic.open_float(nil, diagnostic_opts)
+  if vim.diagnostic.open_float(nil, diagnostic_opts) then
+    vim.lsp.buf.code_action(nil)
+  end
   end
 })
 end
