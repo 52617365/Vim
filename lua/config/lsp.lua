@@ -18,6 +18,8 @@ local on_attach = function(_, bufnr)
   api.nvim_buf_set_keymap(bufnr, 'n', '<C-f>', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
   api.nvim_buf_set_keymap(bufnr, 'v', '<space>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
   --  vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+  --
+  -- This next part is to open lsp diagnostics into a floating window ON HOVER
   vim.api.nvim_create_autocmd("CursorHold", {
   buffer = bufnr,
   callback = function()
