@@ -1,61 +1,58 @@
-# Features
-- Conditional breakpoints, function breakpoints, logpoints,
-- Hardware data access breakpoints (watchpoints),
-- Launch debuggee in integrated or external terminal,
-- Disassembly view with instruction-level stepping,
-- Loaded modules view,
-- Python scripting,
-- HTML rendering for advanced visualizations,
-- Workspace-level defaults for launch configurations,
-- Remote debugging,
-- Reverse debugging (experimental, requires a compatible backend).
+# C/C++ for Visual Studio Code
 
-For full details please see [User's Manual](https://github.com/vadimcn/vscode-lldb/blob/v1.7.0/MANUAL.md).<br>
+#### [Repository](https://github.com/microsoft/vscode-cpptools)&nbsp;&nbsp;|&nbsp;&nbsp;[Issues](https://github.com/microsoft/vscode-cpptools/issues)&nbsp;&nbsp;|&nbsp;&nbsp;[Documentation](https://code.visualstudio.com/docs/languages/cpp)&nbsp;&nbsp;|&nbsp;&nbsp;[Code Samples](https://github.com/microsoft/vscode-cpptools/tree/main/Code%20Samples)
 
-# Languages
-The primary focus of this project are the C++ and Rust languages, for which CodeLLDB includes built-in visualizers for
-vectors, strings, maps, and other standard library types.<br>
-That said, it is usable with most other compiled languages whose compiler generates compatible debugging information,
-such as Ada, Fortran, Kotlin Native, Nim, Objective-C, Pascal, [Swift](https://github.com/vadimcn/vscode-lldb/wiki/Swift)
-and Zig.
+[![Badge](https://aka.ms/vsls-badge)](https://aka.ms/vsls)
 
-# Supported Platforms
+The C/C++ extension adds language support for C/C++ to Visual Studio Code, including features such as IntelliSense and debugging.
 
-## Host
-- [Linux](https://github.com/vadimcn/vscode-lldb/wiki/Linux) with glibc 2.18+ for x86_64, aarch64 or armhf,
-- [MacOS](https://github.com/vadimcn/vscode-lldb/wiki/MacOS) X 10.10+ for x86_64 and 11.0+ for arm64,
-- [Windows](https://github.com/vadimcn/vscode-lldb/wiki/Windows) 10 for x86_64.
+## Overview and tutorials
+* [C/C++ extension overview](https://code.visualstudio.com/docs/languages/cpp)
 
-## Target
-CodeLLDB supports AArch64, ARM, AVR, MSP430, RISCV, X86 architectures and may be used to debug on embedded platforms
-via [remote debugging](https://github.com/vadimcn/vscode-lldb/blob/v1.7.0/MANUAL.md#remote-debugging).
+C/C++ extension tutorials per compiler and platform
+* [Microsoft C++ compiler (MSVC) on Windows](https://code.visualstudio.com/docs/cpp/config-msvc)
+* [GCC and Mingw-w64 on Windows](https://code.visualstudio.com/docs/cpp/config-mingw)
+* [GCC on Windows Subsystem for Linux (WSL)](https://code.visualstudio.com/docs/cpp/config-wsl)
+* [GCC on Linux](https://code.visualstudio.com/docs/cpp/config-linux)
+* [Clang on macOS](https://code.visualstudio.com/docs/cpp/config-clang-mac)
 
-# Quick Start
-Here's a minimal debug configuration to get you started:
-```javascript
-{
-    "name": "Launch",
-    "type": "lldb",
-    "request": "launch",
-    "program": "${workspaceFolder}/<my program>",
-    "args": ["-arg1", "-arg2"],
-}
-```
+## Quick links
+* [Editing features (IntelliSense)](https://code.visualstudio.com/docs/cpp/cpp-ide)
+* [IntelliSense configuration](https://code.visualstudio.com/docs/cpp/customize-default-settings-cpp)
+* [Enhanced colorization](https://code.visualstudio.com/docs/cpp/colorization-cpp)
+* [Debugging](https://code.visualstudio.com/docs/cpp/cpp-debug)
+* [Debug configuration](https://code.visualstudio.com/docs/cpp/launch-json-reference)
+* [Enable logging for IntelliSense or debugging](https://code.visualstudio.com/docs/cpp/enable-logging-cpp)
 
-# Links
-- [Debugging in VS Code](https://code.visualstudio.com/docs/editor/debugging) - if you are new to VSCode debugging.
-- [CodeLLDB User's Manual](https://github.com/vadimcn/vscode-lldb/blob/v1.7.0/MANUAL.md) - how to use this extension.
-- [LLDB Homepage](https://lldb.llvm.org/) - all of LLDB's CLI commands and scripting features may be used in CodeLLDB.
-- [Wiki pages](https://github.com/vadimcn/vscode-lldb/wiki) - [troubleshooting](https://github.com/vadimcn/vscode-lldb/wiki/Troubleshooting) and other tips and tricks.
-- [Discussions](https://github.com/vadimcn/vscode-lldb/discussions) - for questions and discussions.
+## Questions and feedback
 
-# Screenshots
-
-C++ debugging with data visualization ([Howto](https://github.com/vadimcn/vscode-lldb/wiki/Data-visualization)):<br>
-![source](https://github.com/vadimcn/vscode-lldb/raw/v1.7.0/images/plotting.png)
+**[FAQs](https://code.visualstudio.com/docs/cpp/faq-cpp)**
 <br>
+Check out the FAQs before filing a question.
 <br>
-Rust debugging:<br>
-![source](https://github.com/vadimcn/vscode-lldb/raw/v1.7.0/images/source.png)
 
+**[Provide feedback](https://github.com/microsoft/vscode-cpptools/issues/new/choose)**
+<br>
+File questions, issues, or feature requests for the extension.
+<br>
 
+**[Known issues](https://github.com/Microsoft/vscode-cpptools/issues)**
+<br>
+If someone has already filed an issue that encompasses your feedback, please leave a 👍 or 👎 reaction on the issue to upvote or downvote it to help us prioritize the issue.
+<br>
+
+**[Quick survey](https://www.research.net/r/VBVV6C6)**
+<br>
+Let us know what you think of the extension by taking the quick survey.
+
+## Contribution
+
+Contributions are always welcome. Please see our [contributing guide](https://github.com/Microsoft/vscode-cpptools/blob/HEAD/CONTRIBUTING.md) for more details.
+
+## Microsoft Open Source Code of Conduct
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact opencode@microsoft.com with any additional questions or comments.
+
+## Data and telemetry
+
+This extension collects usage data and sends it to Microsoft to help improve our products and services. Collection of telemetry is controlled via the same setting provided by Visual Studio Code: `"telemetry.enableTelemetry"`. Read our [privacy statement](https://privacy.microsoft.com/en-us/privacystatement) to learn more.

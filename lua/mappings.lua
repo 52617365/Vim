@@ -53,21 +53,17 @@ api.nvim_set_keymap('n', '<Leader>s', ':BrowserSearch ', non_silent_opts)
 api.nvim_set_keymap('v', '<Leader>s', ':BrowserSearch<CR>',  opts)
 
 -- Trouble.nvim keybindings (Diagnostics)
-vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>",
-  {silent = true, noremap = true}
-)
+vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<CR>", opts)
+vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<CR>", opts)
+
+
+-- Debugging with nvim-dap
+vim.api.nvim_set_keymap("n", "db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+vim.api.nvim_set_keymap("n", "dc", "<cmd>lua require'dap'.continue()<CR>", opts)
+vim.api.nvim_set_keymap("n", "do", "<cmd>lua require'dap'.step_over()<CR>", opts)
+vim.api.nvim_set_keymap("n", "di", "<cmd>lua require'dap'.step_into()<CR>", opts)
+vim.api.nvim_set_keymap("n", "ds", "<cmd>lua require'dap'.repl.open()<CR>", opts)
