@@ -5,7 +5,7 @@ vim.fn.sign_define('DapStopped', {text='⭐️', texthl='', linehl='', numhl=''}
 
 -- 💀 Adjust the path to your executable
 --
-local path = vim.env.HOME .. '/.config/nvim/adapters/extension/debugAdapters/OpenDebugAD7'
+local path = vim.env.HOME .. '/.config/nvim/adapters/extension/debugAdapters/bin/OpenDebugAD7'
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
