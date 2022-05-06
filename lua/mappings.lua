@@ -52,7 +52,7 @@ api.nvim_set_keymap('n', '<Leader>s', ':BrowserSearch ', non_silent_opts)
 --api.nvim_set_keymap('v', '<Leader>s', '<Plug>SearchVisual',  opts)
 api.nvim_set_keymap('v', '<Leader>s', ':BrowserSearch<CR>',  opts)
 
--- Lua
+-- Trouble.nvim keybindings (Diagnostics)
 vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
   {silent = true, noremap = true}
 )
