@@ -1,8 +1,8 @@
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
 end
 
 return require('packer').startup(function(use)
@@ -10,7 +10,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Easy language server installer etc.
-  use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'} -- Collection of configurations for the built-in LSP client
+  use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' } -- Collection of configurations for the built-in LSP client
 
   -- Telescope fuzzy finder
   use {
@@ -40,7 +40,7 @@ return require('packer').startup(function(use)
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Multi cursor thingy.
-  use {'mg979/vim-visual-multi', branch='master'}
+  use { 'mg979/vim-visual-multi', branch = 'master' }
 
   -- Search from vim because I'm lazy.
   use '52617365/vim-browser-search'
@@ -56,13 +56,21 @@ return require('packer').startup(function(use)
   use 'ryanoasis/vim-devicons'
 
   use { -- Nvim Treesitter configurations and abstraction layer
-   'nvim-treesitter/nvim-treesitter',
+    'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
   }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if packer_bootstrap then
-      require('packer').sync()
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if packer_bootstrap then
+    require('packer').sync()
+  end
+
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {}
     end
+  }
 end)
