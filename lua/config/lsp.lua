@@ -15,16 +15,16 @@ local on_attach = function(_, bufnr)
   api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   api.nvim_buf_set_keymap(bufnr, 'n', '<space>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  --  api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  api.nvim_buf_set_keymap(bufnr, 'n', '<C-f>', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
   api.nvim_buf_set_keymap(bufnr, 'v', '<space>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
   --  vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
 end
 
 -- LSP --
-local servers = {"rust_analyzer", "tsserver", "bashls", "cssmodules_ls", "html", "intelephense"}
-require("nvim-lsp-installer").setup{
+local expected_installed_servers = { "rust_analyzer", "tsserver", "bashls", "cssmodules_ls", "html", "intelephense" }
+require("nvim-lsp-installer").setup {
   automatic_installation = true,
-  ensure_installed = servers,
+  ensure_installed = expected_installed_servers,
   ui = {
     icons = {
       server_installed = "✓",
@@ -37,10 +37,28 @@ require("nvim-lsp-installer").setup{
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-for _, server in ipairs(servers) do
-  require('lspconfig')[server].setup {capabilities = capabilities, on_attach = on_attach}
+
+local installable_servers = { "rust_analyzer", "tsserver", "bashls", "cssmodules_ls", "html", "intelephense" }
+
+for _, server in ipairs(installable_servers) do
+  require('lspconfig')[server].setup { capabilities = capabilities, on_attach = on_attach }
 end
 
+
+-- lspconfig.rust_analyzer.setup{
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   settings = {
+--     -- to enable rust-analyzer settings visit:
+--     -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+--     ["rust-analyzer"] = {
+--       -- enable clippy on save
+--       checkOnSave = {
+--         command = "clippy"
+--       },
+--     }
+--   }
+-- }
 
 lspconfig.sumneko_lua.setup {
   on_attach = on_attach,
