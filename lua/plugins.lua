@@ -16,7 +16,10 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' }
   }
+  -- Telescope extensions
   use 'nvim-telescope/telescope-fzy-native.nvim'
+  use 'sudormrfbin/cheatsheet.nvim'
+  -- END Telescope extensions
 
   use {
     'nvim-lualine/lualine.nvim',
