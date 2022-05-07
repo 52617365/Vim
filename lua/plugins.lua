@@ -28,17 +28,18 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp Gods plugins use 'tpope/vim-fugitive'
+  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
 
+  -- Gods plugins
+  use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
-  use 'tpope/vim-fugitive'
 
-  use {'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Multi cursor thingy.
-  use {'mg979/vim-visual-multi', branch = 'master' }
+  use { 'mg979/vim-visual-multi', branch = 'master' }
 
   -- Search from vim because I'm lazy.
   use '52617365/vim-browser-search'
@@ -74,6 +75,13 @@ return require('packer').startup(function(use)
   -- Auto pairs as the same suggest.
   use 'windwp/nvim-autopairs'
 
+  -- Project management inside neovim
+  use {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("project_nvim").setup{}
+    end
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
