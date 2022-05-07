@@ -39,6 +39,7 @@ api.nvim_set_keymap('n', '<Leader>ff', ':Telescope find_files<cr>', opts)
 api.nvim_set_keymap('n', '<Leader>fg', ':Telescope live_grep<cr>', opts)
 api.nvim_set_keymap('n', '<Leader>fb', ':Telescope buffers<cr>', opts)
 api.nvim_set_keymap('n', '<Leader>fh', ':Telescope help_tags<cr>', opts)
+api.nvim_set_keymap('n', '<Leader>fp', ':Telescope projects<cr>', opts)
 
 -- lspconfig keybindings
 api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
