@@ -1,4 +1,4 @@
--------------
+--------------
 -- Mappings --
 --------------
 -- Trouble and telescope integration.
@@ -22,8 +22,19 @@ require('telescope').setup {
       override_generic_sorter = false,
       override_file_sorter = true,
     },
+    project = {
+      base_dirs = { '~/dev/file_analyzer/src', max_depth=2,
+        { '~/dev/Elasticsearch-Parser/src', max_depth=2 },
+        { '~/dev/work/site', max_depth=2},
+        { '~/.config/nvim/lua', max_depth=2 },
+      },
+      hidden_files = false, -- default: false
+      theme = "dropdown",
+    }
   }
 }
 require('telescope').load_extension('fzy_native')
 -- For project management.
-require('telescope').load_extension('projects')
+--require('telescope').load_extension('projects')
+-- For project management.
+require 'telescope'.load_extension('project')
