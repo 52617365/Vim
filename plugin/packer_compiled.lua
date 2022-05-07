@@ -229,6 +229,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rase/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
     url = "https://github.com/mg979/vim-visual-multi"
+  },
+  ["virtual-types.nvim"] = {
+    loaded = true,
+    path = "/home/rase/.local/share/nvim/site/pack/packer/start/virtual-types.nvim",
+    url = "https://github.com/jubnzv/virtual-types.nvim"
   }
 }
 
