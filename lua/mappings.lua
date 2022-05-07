@@ -66,3 +66,7 @@ vim.api.nvim_set_keymap("n", "dc", "<cmd>lua require'dap'.continue()<CR>", opts)
 vim.api.nvim_set_keymap("n", "do", "<cmd>lua require'dap'.step_over()<CR>", opts)
 vim.api.nvim_set_keymap("n", "di", "<cmd>lua require'dap'.step_into()<CR>", opts)
 vim.api.nvim_set_keymap("n", "ds", "<cmd>lua require'dap'.repl.open()<CR>", opts)
+
+-- Toggle nerd tree
+-- ( (t)oggle (t)ree)
+vim.api.nvim_set_keymap("n", "tt", "<cmd>lua require 'nvim-tree'.toggle(true)<CR>", opts)
