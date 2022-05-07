@@ -12,7 +12,7 @@ dap.adapters.cppdbg = {
   command = path,
 }
 
-dap.configurations.rust = {
+dap.configurations.cpp = {
   {
     name = "Launch file",
     type = "cppdbg",
@@ -36,3 +36,5 @@ dap.configurations.rust = {
     end,
   },
 }
+dap.configurations.rust = dap.configurations.cpp
+dap.configurations.c = dap.configurations.cpp

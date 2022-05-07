@@ -11,8 +11,6 @@ return require('packer').startup(function(use)
 
   -- Easy language server installer etc.
   use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' } -- Collection of configurations for the built-in LSP client
-
-  use 'simrat39/rust-tools.nvim'
   -- Telescope fuzzy finder
   use {
     'nvim-telescope/telescope.nvim',
@@ -78,4 +76,8 @@ return require('packer').startup(function(use)
   -- Debugging inside of Neovim
   use 'mfussenegger/nvim-dap'
   use 'rcarriga/nvim-dap-ui'
+
+  -- Better code action menus etc.
+  use 'RishabhRD/popfix'
+  use 'RishabhRD/nvim-lsputils'
 end)
