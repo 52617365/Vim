@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/rase/.local/share/nvim/site/pack/packer/start/nerdtree",
     url = "https://github.com/preservim/nerdtree"
   },
+  ["nvim-autopairs"] = {
+    loaded = true,
+    path = "/home/rase/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/rase/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -139,11 +144,6 @@ _G.packer_plugins = {
     path = "/home/rase/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-lsputils"] = {
-    loaded = true,
-    path = "/home/rase/.local/share/nvim/site/pack/packer/start/nvim-lsputils",
-    url = "https://github.com/RishabhRD/nvim-lsputils"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/rase/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -168,11 +168,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rase/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  popfix = {
-    loaded = true,
-    path = "/home/rase/.local/share/nvim/site/pack/packer/start/popfix",
-    url = "https://github.com/RishabhRD/popfix"
   },
   ["telescope-fzy-native.nvim"] = {
     loaded = true,
