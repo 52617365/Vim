@@ -85,6 +85,10 @@ return require('packer').startup(function(use)
 
   -- Project management inside neovim
   use 'ahmedkhalf/project.nvim'
+
+  -- Inline information about functions and types etc.
+  use 'jubnzv/virtual-types.nvim'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
