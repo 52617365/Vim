@@ -19,13 +19,12 @@ augroup YankHighlight
   autocmd!
   autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
 augroup END
-
-augroup nerdtree
-  autocmd VimEnter * NERDTree | wincmd p
-  autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-augroup end
 ]])
-
+-- augroup nerdtree
+--   autocmd VimEnter * NERDTree | wincmd p
+--   autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+-- augroup end
+--
 g.deus_termcolors=256
 api.nvim_command('colorscheme deus')
 opt.path = "$PWD/**"

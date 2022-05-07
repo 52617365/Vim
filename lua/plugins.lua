@@ -51,7 +51,15 @@ return require('packer').startup(function(use)
 
   use 'github/copilot.vim'
 
-  use 'preservim/nerdtree'
+  -- Nerd tree written in lua
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
+
   use 'ryanoasis/vim-devicons'
 
   use { -- Nvim Treesitter configurations and abstraction layer
