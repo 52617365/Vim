@@ -20,22 +20,23 @@ local on_attach = function(_, bufnr)
   --  vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
   --
   -- This next part is to open lsp diagnostics into a floating window ON HOVER
-  -- vim.api.nvim_create_autocmd("CursorHold", {
-  --   buffer = bufnr,
-  --   callback = function()
-  --     local diagnostic_opts = {
-  --       focusable = false,
-  --       close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-  --       border = 'rounded',
-  --       source = 'always',
-  --       prefix = ' ',
-  --       scope = 'cursor',
-  --     }
-  --     if vim.diagnostic.open_float(nil, diagnostic_opts) then
-  --       vim.lsp.buf.code_action(nil, diagnostic_opts)
-  --     end
-  --   end
-  -- })
+  vim.api.nvim_create_autocmd("CursorHold", {
+    buffer = bufnr,
+    callback = function()
+      local diagnostic_opts = {
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        border = 'rounded',
+        source = 'always',
+        prefix = ' ',
+        scope = 'cursor',
+      }
+      vim.diagnostic.open_float(nil, diagnostic_opts);
+      -- if vim.diagnostic.open_float(nil, diagnostic_opts) then
+      --   vim.lsp.buf.code_action(nil, diagnostic_opts)
+      -- end
+    end
+  })
 end
 
 -- LSP --
