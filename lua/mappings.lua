@@ -60,7 +60,6 @@ vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<CR>", opts)
 vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<CR>", opts)
 
-
 -- Debugging with nvim-dap
 vim.api.nvim_set_keymap("n", "db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
 vim.api.nvim_set_keymap("n", "dc", "<cmd>lua require'dap'.continue()<CR>", opts)
