@@ -40,7 +40,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-repeat'
 
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-
   -- Multi cursor thingy.
   use { 'mg979/vim-visual-multi', branch = 'master' }
 
@@ -86,8 +85,8 @@ return require('packer').startup(function(use)
   -- Auto pairs as the same suggest.
   use 'windwp/nvim-autopairs'
 
-  -- Project management inside neovim
-  use 'ahmedkhalf/project.nvim'
+  -- Project management inside neovim with a telescope extension.
+  use 'nvim-telescope/telescope-project.nvim'
 
   -- Inline information about functions and types etc.
   use 'jubnzv/virtual-types.nvim'

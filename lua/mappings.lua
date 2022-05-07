@@ -1,14 +1,14 @@
--------------
+--------------
 -- Mappings --
 --------------
 local api = vim.api
-local opts = { noremap=true, silent=true }
-local non_silent_opts = { noremap=true, silent=false }
+local opts = { noremap = true, silent = true }
+local non_silent_opts = { noremap = true, silent = false }
 
 -- Saving stuff to save time
 api.nvim_set_keymap('n', '<C-s>', ':w<CR>', opts)
 api.nvim_set_keymap('i', '<C-s>', '<Esc>:w<CR>', opts)
-api.nvim_set_keymap('v', '<C-s>', '<Esc>:w<CR>',  opts)
+api.nvim_set_keymap('v', '<C-s>', '<Esc>:w<CR>', opts)
 
 -- Remaps for vim-fugitive
 api.nvim_set_keymap('n', '<Leader>gs', ':G<CR>', opts)
@@ -50,7 +50,7 @@ api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>',
 --api.nvim_set_keymap('n', '<Leader>s', '<Plug>SearchNormal', opts)
 api.nvim_set_keymap('n', '<Leader>s', ':BrowserSearch ', non_silent_opts)
 --api.nvim_set_keymap('v', '<Leader>s', '<Plug>SearchVisual',  opts)
-api.nvim_set_keymap('v', '<Leader>s', ':BrowserSearch<CR>',  opts)
+api.nvim_set_keymap('v', '<Leader>s', ':BrowserSearch<CR>', opts)
 
 -- Trouble.nvim keybindings (Diagnostics)
 vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>", opts)
@@ -70,3 +70,6 @@ vim.api.nvim_set_keymap("n", "ds", "<cmd>lua require'dap'.repl.open()<CR>", opts
 -- Toggle nerd tree
 -- ( (t)oggle (t)ree)
 vim.api.nvim_set_keymap("n", "tt", "<cmd>lua require 'nvim-tree'.toggle(true)<CR>", opts)
+
+-- Telescope project keybinding
+vim.api.nvim_set_keymap('n', '<leader>fp', ":lua require'telescope'.extensions.project.project{}<CR>", opts)
