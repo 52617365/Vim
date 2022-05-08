@@ -45,7 +45,7 @@ return require('packer').startup(function(use)
 
   -- Search from vim because I'm lazy.
   use '52617365/vim-browser-search'
-  use '52617365/telescope_browser.nvim'
+  --use '52617365/telescope_browser.nvim'
   -- Colorscheme
   use 'ajmwagar/vim-deus'
 
@@ -87,9 +87,9 @@ return require('packer').startup(function(use)
 
   -- Project management inside neovim with a telescope extension.
   use 'nvim-telescope/telescope-project.nvim'
-
+  use 'asbjornhaland/telescope-send-to-harpoon.nvim'
   -- Inline information about functions and types etc.
---  use 'jubnzv/virtual-types.nvim'
+  --  use 'jubnzv/virtual-types.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

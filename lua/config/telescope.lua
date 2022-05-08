@@ -13,7 +13,7 @@ require('telescope').setup {
     grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
     qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
     mappings = {
-      i = { ["<c-t>"] = trouble.open_with_trouble },
+      i = { ["<c-t>"] = trouble.open_with_trouble, ["<C-h>"] = require 'telescope'.extensions.send_to_harpoon.actions.send_selected_to_harpoon },
       n = { ["<c-t>"] = trouble.open_with_trouble },
     },
   },
@@ -44,4 +44,6 @@ require('telescope').load_extension('fzy_native')
 -- For project management.
 require('telescope').load_extension('project')
 -- My own extension for browser searching
-require 'telescope'.load_extension('telescope_browser')
+--require('telescope').load_extension('telescope_browser')
+
+require('telescope').load_extension('send_to_harpoon')
