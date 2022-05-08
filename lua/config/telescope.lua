@@ -19,22 +19,29 @@ require('telescope').setup {
   },
   extensions = {
     fzy_native = {
-      override_generic_sorter = false,
+      override_generic_sorter = true,
       override_file_sorter = true,
     },
     project = {
-      base_dirs = { '~/dev/file_analyzer/src', max_depth=2,
-        { '~/dev/Elasticsearch-Parser/src', max_depth=2 },
-        { '~/dev/work/site', max_depth=2},
-        { '~/.config/nvim/lua', max_depth=2 },
+      base_dirs = { '~/dev/file_analyzer/src', max_depth = 2,
+        { '~/dev/Elasticsearch-Parser/src', max_depth = 2 },
+        { '~/dev/work/site', max_depth = 2 },
+        { '~/.config/nvim/lua', max_depth = 2 },
       },
       hidden_files = false, -- default: false
       theme = "dropdown",
+    },
+    telescope_browser = {
+      engines = {
+        { "rust", "asdasdasd" },
+        { "mozilla", "123123123" },
+      },
+      browser = "firefox",
     }
   }
 }
 require('telescope').load_extension('fzy_native')
 -- For project management.
---require('telescope').load_extension('projects')
--- For project management.
-require 'telescope'.load_extension('project')
+require('telescope').load_extension('project')
+-- My own extension for browser searching
+require 'telescope'.load_extension('telescope_browser')

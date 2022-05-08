@@ -24,11 +24,7 @@ augroup Closetree
   autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 augroup END
 ]])
--- augroup nerdtree
---   autocmd VimEnter * NERDTree | wincmd p
---   autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
--- augroup end
---
+
 g.deus_termcolors = 256
 api.nvim_command('colorscheme deus')
 opt.path = "$PWD/**"
@@ -64,7 +60,7 @@ opt.termguicolors = true
 opt.scrolloff = 8 -- is one of my fav
 opt.sidescrolloff = 8
 opt.undofile = true
-opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
+opt.timeoutlen = 800 -- time to wait for a mapped sequence to complete (in milliseconds)
 opt.lazyredraw = true
 opt.synmaxcol = 300
 opt.expandtab = true

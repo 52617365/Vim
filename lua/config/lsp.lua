@@ -4,7 +4,6 @@ local opts = { noremap = true, silent = true }
 local lspconfig = require("lspconfig")
 
 local on_attach = function(_, bufnr)
-  require 'virtualtypes'
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)

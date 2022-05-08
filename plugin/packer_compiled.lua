@@ -189,6 +189,11 @@ _G.packer_plugins = {
     path = "/home/rase/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["telescope_browser.nvim"] = {
+    loaded = true,
+    path = "/home/rase/.local/share/nvim/site/pack/packer/start/telescope_browser.nvim",
+    url = "https://github.com/52617365/telescope_browser.nvim"
+  },
   ["trouble.nvim"] = {
     config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0" },
     loaded = true,
@@ -234,11 +239,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rase/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
     url = "https://github.com/mg979/vim-visual-multi"
-  },
-  ["virtual-types.nvim"] = {
-    loaded = true,
-    path = "/home/rase/.local/share/nvim/site/pack/packer/start/virtual-types.nvim",
-    url = "https://github.com/jubnzv/virtual-types.nvim"
   }
 }
 
