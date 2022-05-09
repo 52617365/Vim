@@ -23,10 +23,13 @@ return require('packer').startup(function(use)
 
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true } } use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
+  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   -- cmp
   use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp' use 'L3MON4D3/LuaSnip' use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   -- Gods plugins
   use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
@@ -39,7 +42,7 @@ return require('packer').startup(function(use)
 
   -- Search from vim because I'm lazy.
   use '52617365/vim-browser-search'
---  use '52617365/telescope-browser.nvim'
+  --  use '52617365/telescope-browser.nvim'
   -- Colorscheme
   use 'ajmwagar/vim-deus'
 
