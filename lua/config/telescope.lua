@@ -31,13 +31,13 @@ require('telescope').setup {
       hidden_files = false, -- default: false
       theme = "dropdown",
     },
-    telescope_browser = {
-      engines = {
-        { "rust", "asdasdasd" },
-        { "mozilla", "123123123" },
-      },
-      browser = "firefox",
-    }
+  -- telescope_browser = {
+    --   engines = {
+    --     { "rust", "asdasdasd" },
+    --     { "mozilla", "123123123" },
+    --   },
+    --   browser = "firefox",
+    -- }
   }
 }
 require('telescope').load_extension('fzy_native')
@@ -45,5 +45,4 @@ require('telescope').load_extension('fzy_native')
 require('telescope').load_extension('project')
 -- My own extension for browser searching
 --require('telescope').load_extension('telescope_browser')
-
 require('telescope').load_extension('send_to_harpoon')

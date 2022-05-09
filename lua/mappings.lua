@@ -1,4 +1,4 @@
---------------
+-------------
 -- Mappings --
 --------------
 local api = vim.api
@@ -27,10 +27,7 @@ vim.keymap.set('n', '<Leader>2', ':lua require("harpoon.ui").nav_file(2)<CR>', o
 vim.keymap.set('n', '<Leader>3', ':lua require("harpoon.ui").nav_file(3)<CR>', opts)
 vim.keymap.set('n', '<Leader>4', ':lua require("harpoon.ui").nav_file(4)<CR>', opts)
 
--- Debugger key bindings (nvim-dap)
--- TODO: ALL BINDINGS
-vim.keymap.set('n', '<Alt>b', ':lua require("dap").toggle_breakpoint()<CR>', opts)
-vim.keymap.set('n', '<Alt>so', ':lua require("dap").step_over()', opts)
+-- Debugger key bindings (nvim-dap) TODO: ALL BINDINGS vim.keymap.set('n', '<Alt>b', ':lua require("dap").toggle_breakpoint()<CR>', opts) vim.keymap.set('n', '<Alt>so', ':lua require("dap").step_over()', opts)
 vim.keymap.set('n', '<Alt>si', ':lua require("dap").step_into()', opts)
 vim.keymap.set('n', '<Alt>c', ':lua require("dap").continue()', opts)
 vim.keymap.set('n', '<Alt>o', ':lua require("dap").repl.open()', opts)
@@ -73,3 +70,5 @@ vim.keymap.set("n", "tt", "<cmd>lua require 'nvim-tree'.toggle(true)<CR>", opts)
 
 -- Telescope project keybinding
 vim.keymap.set('n', '<leader>fp', ":lua require'telescope'.extensions.project.project{}<CR>", opts)
+-- vim.keymap.set('n', '<leader>fs', ":lua require'telescope'.extensions.telescope-browser.actions.open_menu<CR>", opts)
+-- vim.keymap.set('v', '<leader>fs', ":lua require'telescope'.extensions.telescope-browser.actions.open_menu<CR>", opts)
