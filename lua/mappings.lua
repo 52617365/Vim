@@ -13,9 +13,9 @@ vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>', opts)
 -- Remaps for vim-fugitive
 vim.keymap.set('n', '<Leader>gs', ':G<CR>', opts)
 vim.keymap.set('n', '<Leader>gc', ':Gwrite<CR>', opts)
+vim.keymap.set('n', '<Leader>gp', ':Git -c push.default=current push<CR>', opts)
 vim.keymap.set('n', '<Leader>gj', ':diffget //3<CR>', opts)
 vim.keymap.set('n', '<Leader>gf', ':diffget //2<CR>', opts)
-
 -- reload configuration file with :wc
 vim.keymap.set('n', '<Leader>wc', ':source $HOME/.config/nvim/init.lua<CR>', opts)
 
