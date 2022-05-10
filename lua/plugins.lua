@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
 
   -- Easy language server installer etc.
   use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' } -- Collection of configurations for the built-in LSP client
+
   -- Telescope fuzzy finder
   use {
     'nvim-telescope/telescope.nvim',
@@ -25,6 +26,7 @@ return require('packer').startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
+
   -- cmp
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -40,6 +42,7 @@ return require('packer').startup(function(use)
   use 'numToStr/Comment.nvim'
 
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+
   -- Multi cursor thingy.
   use { 'mg979/vim-visual-multi', branch = 'master' }
 
@@ -48,6 +51,7 @@ return require('packer').startup(function(use)
   -- use '52617365/telescope-browser.nvim'
   -- Colorscheme
   -- use 'ajmwagar/vim-deus'
+
   use 'marko-cerovac/material.nvim'
   use 'ThePrimeagen/harpoon'
 
