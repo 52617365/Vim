@@ -29,12 +29,15 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-  -- Gods plugins
+  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp Gods plugins
+
+
   use 'tpope/vim-fugitive'
-  use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
+
+  -- for commenting
+  use 'numToStr/Comment.nvim'
 
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   -- Multi cursor thingy.
@@ -42,10 +45,10 @@ return require('packer').startup(function(use)
 
   -- Search from vim because I'm lazy.
   use '52617365/vim-browser-search'
-  --  use '52617365/telescope-browser.nvim'
+  -- use '52617365/telescope-browser.nvim'
   -- Colorscheme
-  use 'ajmwagar/vim-deus'
-
+  -- use 'ajmwagar/vim-deus'
+  use 'marko-cerovac/material.nvim'
   use 'ThePrimeagen/harpoon'
 
   use 'github/copilot.vim'
@@ -88,6 +91,7 @@ return require('packer').startup(function(use)
   -- Inline information about functions and types etc.
   --  use 'jubnzv/virtual-types.nvim'
 
+  -- use 'NLKNguyen/papercolor-theme'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

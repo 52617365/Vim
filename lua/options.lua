@@ -25,8 +25,11 @@ augroup Closetree
 augroup END
 ]])
 
-g.deus_termcolors = 256
-api.nvim_command('colorscheme deus')
+ -- g.deus_termcolors = 256
+ -- api.nvim_command('colorscheme deus')
+--  api.nvim_command('set background=dark')
+api.nvim_command('colorscheme material')
+vim.g.material_style = "deep ocean"
 opt.path = "$PWD/**"
 opt.undodir = os.getenv('HOME') .. "/temp/"
 opt.sol = true

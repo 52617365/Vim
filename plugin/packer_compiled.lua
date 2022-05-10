@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    loaded = true,
+    path = "/home/rase/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/home/rase/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -113,6 +118,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rase/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["material.nvim"] = {
+    loaded = true,
+    path = "/home/rase/.local/share/nvim/site/pack/packer/start/material.nvim",
+    url = "https://github.com/marko-cerovac/material.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -204,16 +214,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rase/.local/share/nvim/site/pack/packer/start/vim-browser-search",
     url = "https://github.com/52617365/vim-browser-search"
-  },
-  ["vim-commentary"] = {
-    loaded = true,
-    path = "/home/rase/.local/share/nvim/site/pack/packer/start/vim-commentary",
-    url = "https://github.com/tpope/vim-commentary"
-  },
-  ["vim-deus"] = {
-    loaded = true,
-    path = "/home/rase/.local/share/nvim/site/pack/packer/start/vim-deus",
-    url = "https://github.com/ajmwagar/vim-deus"
   },
   ["vim-devicons"] = {
     loaded = true,
