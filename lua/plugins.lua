@@ -41,6 +41,14 @@ return require('packer').startup(function(use)
   -- for commenting
   use 'numToStr/Comment.nvim'
 
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v1', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  }
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Multi cursor thingy.
@@ -63,7 +71,6 @@ return require('packer').startup(function(use)
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
     },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
   use 'ryanoasis/vim-devicons'
@@ -92,10 +99,7 @@ return require('packer').startup(function(use)
   -- Project management inside neovim with a telescope extension.
   use 'nvim-telescope/telescope-project.nvim'
   use 'asbjornhaland/telescope-send-to-harpoon.nvim'
-  -- Inline information about functions and types etc.
-  --  use 'jubnzv/virtual-types.nvim'
 
-  -- use 'NLKNguyen/papercolor-theme'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

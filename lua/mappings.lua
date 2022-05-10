@@ -70,6 +70,6 @@ vim.keymap.set("n", "tt", "<cmd>lua require 'nvim-tree'.toggle(true)<CR>", opts)
 
 -- Telescope project keybinding
 vim.keymap.set('n', '<leader>fp', ":lua require'telescope'.extensions.project.project{}<CR>", opts)
--- vim.keymap.set('n', '<leader>fs', ":lua require'telescope'.extensions.telescope-browser.actions.open_menu<CR>", opts)
--- vim.keymap.set('v', '<leader>fs', ":lua require'telescope'.extensions.telescope-browser.actions.open_menu<CR>", opts)
---nmap <F8> :TagbarToggle<CR>
+
+-- Hop.nvim
+vim.keymap.set('n', '<leader>h', ":HopWord<CR>", opts)
