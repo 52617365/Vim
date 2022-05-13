@@ -19,7 +19,6 @@ return require('packer').startup(function(use)
   }
   -- Telescope extensions
   use 'nvim-telescope/telescope-fzy-native.nvim'
-  use 'sudormrfbin/cheatsheet.nvim'
   -- END Telescope extensions
 
   use {
@@ -56,7 +55,7 @@ return require('packer').startup(function(use)
 
   -- Search from vim because I'm lazy.
   use '52617365/vim-browser-search'
-  -- use '52617365/telescope-browser.nvim'
+  use {'52617365/telescope-browser.nvim', branch="feature_1"}
   -- Colorscheme
   -- use 'ajmwagar/vim-deus'
 
