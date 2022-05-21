@@ -11,8 +11,11 @@ return require('packer').startup(function(use)
 
   -- Easy language server installer etc.
   use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' } -- Collection of configurations for the built-in LSP client
-
   -- Telescope fuzzy finder
+  use { 'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu' }
+  use 'kosayoda/nvim-lightbulb'
+
   use {
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' }
@@ -55,7 +58,7 @@ return require('packer').startup(function(use)
 
   -- Search from vim because I'm lazy.
   use '52617365/vim-browser-search'
-  use {'52617365/telescope-browser.nvim', branch="feature_1"}
+  use { '52617365/telescope-browser.nvim', branch = "feature_1" }
   -- Colorscheme
   -- use 'ajmwagar/vim-deus'
 

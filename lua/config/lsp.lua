@@ -14,12 +14,14 @@ local on_attach = function(_, bufnr)
   api.nvim_buf_set_keymap(bufnr, 'n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   api.nvim_buf_set_keymap(bufnr, 'n', '<space>td', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>CodeActionMenu<CR>', opts)
+  -- api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   api.nvim_buf_set_keymap(bufnr, 'n', '<space>re', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   api.nvim_buf_set_keymap(bufnr, 'n', '<C-f>', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
   api.nvim_buf_set_keymap(bufnr, 'v', '<space>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+  -- code action
   --  vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
-  
+
   -- This next part is to open lsp diagnostics into a floating window ON HOVER
   vim.api.nvim_create_autocmd("CursorHold", {
     buffer = bufnr,
@@ -33,13 +35,13 @@ local on_attach = function(_, bufnr)
         scope = 'cursor',
       }
       vim.diagnostic.open_float(nil, diagnostic_opts);
-  --      This is if you want code action on hover
-  --     -- if vim.diagnostic.open_float(nil, diagnostic_opts) then
-  --     --   vim.lsp.buf.code_action(nil, diagnostic_opts)
-  --     -- end
-  --     -- END This is if you want code action on hover
-     end
-   })
+      --      This is if you want code action on hover
+      --     -- if vim.diagnostic.open_float(nil, diagnostic_opts) then
+      --     --   vim.lsp.buf.code_action(nil, diagnostic_opts)
+      --     -- end
+      --     -- END This is if you want code action on hover
+    end
+  })
 end
 
 -- LSP --
@@ -126,4 +128,3 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   border = border,
 })
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
-
