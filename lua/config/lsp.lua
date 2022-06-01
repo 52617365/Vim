@@ -22,10 +22,10 @@ local on_attach = function(_, bufnr)
   --- In lsp attach function
   api.nvim_buf_set_keymap(bufnr, "n", "<space>rn", "<cmd>Lspsaga rename<cr>", opts)
   api.nvim_buf_set_keymap(bufnr, "n", "<space>ca", "<cmd>Lspsaga code_action<cr>", opts)
-  api.nvim_buf_set_keymap(bufnr, "n", "<space>do",  "<cmd>Lspsaga hover_doc<cr>", opts)
+  api.nvim_buf_set_keymap(bufnr, "n", "<space>do", "<cmd>Lspsaga hover_doc<cr>", opts)
   api.nvim_buf_set_keymap(bufnr, "n", "<space>ld", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
-  api.nvim_buf_set_keymap(bufnr, "n", "<space>n", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
-  api.nvim_buf_set_keymap(bufnr, "n", "<space>N", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
+  api.nvim_buf_set_keymap(bufnr, "n", "[e", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
+  api.nvim_buf_set_keymap(bufnr, "n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
   api.nvim_buf_set_keymap(bufnr, "n", "<S-Tab>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
   api.nvim_buf_set_keymap(bufnr, "n", "<Tab>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
 

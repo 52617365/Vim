@@ -5,11 +5,11 @@ lspsaga.setup { -- defaults ...
   -- diagnostic sign
   error_sign = "",
   warn_sign = "",
-  hint_sign = "",
+  hint_sign = "💡",
   infor_sign = "",
   diagnostic_header_icon = "   ",
   -- code action title icon
-  code_action_icon = " ",
+  code_action_icon = "💡",
   code_action_prompt = {
     enable = true,
     sign = true,
@@ -24,15 +24,15 @@ lspsaga.setup { -- defaults ...
     vsplit = "s",
     split = "i",
     quit = "q",
-    scroll_down = "<C-f>",
-    scroll_up = "<C-b>",
+    scroll_down = "<C-u>",
+    scroll_up = "<C-d>",
   },
   code_action_keys = {
-    quit = "q",
+    quit = "<Esc>",
     exec = "<CR>",
   },
   rename_action_keys = {
-    quit = "<C-c>",
+    quit = "<Esc>",
     exec = "<CR>",
   },
   definition_preview_icon = "  ",
