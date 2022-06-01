@@ -22,6 +22,9 @@ return require('packer').startup(function(use)
   }
   -- Telescope extensions
   use 'nvim-telescope/telescope-fzy-native.nvim'
+  -- Project management inside neovim with a telescope extension.
+  use 'nvim-telescope/telescope-project.nvim'
+  use 'asbjornhaland/telescope-send-to-harpoon.nvim'
   -- END Telescope extensions
 
   use {
@@ -40,8 +43,10 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
 
+  use 'ellisonleao/gruvbox.nvim'
   -- for commenting
   use 'numToStr/Comment.nvim'
+  use 'windwp/nvim-ts-autotag'
 
   use {
     'phaazon/hop.nvim',
@@ -60,7 +65,7 @@ return require('packer').startup(function(use)
   use '52617365/vim-browser-search'
   use { '52617365/telescope-browser.nvim', branch = "feature_1" }
   -- Colorscheme
-  -- use 'ajmwagar/vim-deus'
+  use 'ajmwagar/vim-deus'
 
   use 'marko-cerovac/material.nvim'
   use 'ThePrimeagen/harpoon'
@@ -81,6 +86,7 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
   }
+  use 'nvim-treesitter/playground'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
 
   use {
@@ -91,16 +97,9 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- Debugging inside of Neovim
-  use 'mfussenegger/nvim-dap'
-  use 'rcarriga/nvim-dap-ui'
-
   -- Auto pairs as the same suggest.
   use 'windwp/nvim-autopairs'
 
-  -- Project management inside neovim with a telescope extension.
-  use 'nvim-telescope/telescope-project.nvim'
-  use 'asbjornhaland/telescope-send-to-harpoon.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

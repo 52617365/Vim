@@ -1,7 +1,6 @@
 -------------
 -- Mappings --
 --------------
-local api = vim.api
 local opts = { noremap = true, silent = true }
 local non_silent_opts = { noremap = true, silent = false }
 
@@ -27,11 +26,6 @@ vim.keymap.set('n', '<Leader>2', ':lua require("harpoon.ui").nav_file(2)<CR>', o
 vim.keymap.set('n', '<Leader>3', ':lua require("harpoon.ui").nav_file(3)<CR>', opts)
 vim.keymap.set('n', '<Leader>4', ':lua require("harpoon.ui").nav_file(4)<CR>', opts)
 
--- Debugger key bindings (nvim-dap) TODO: ALL BINDINGS vim.keymap.set('n', '<Alt>b', ':lua require("dap").toggle_breakpoint()<CR>', opts) vim.keymap.set('n', '<Alt>so', ':lua require("dap").step_over()', opts)
-vim.keymap.set('n', '<Alt>si', ':lua require("dap").step_into()', opts)
-vim.keymap.set('n', '<Alt>c', ':lua require("dap").continue()', opts)
-vim.keymap.set('n', '<Alt>o', ':lua require("dap").repl.open()', opts)
-
 vim.keymap.set('n', '<Leader>ff', ':Telescope find_files<cr>', opts)
 vim.keymap.set('n', '<Leader>fg', ':Telescope live_grep<cr>', opts)
 vim.keymap.set('n', '<Leader>fb', ':Telescope buffers<cr>', opts)
@@ -55,14 +49,7 @@ vim.keymap.set("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<CR>", opts
 vim.keymap.set("n", "<leader>xd", "<cmd>Trouble document_diagnostics<CR>", opts)
 vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist<CR>", opts)
 vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix<CR>", opts)
-vim.keymap.set("n", "gR", "<cmd>Trouble lsp_references<CR>", opts)
-
--- Debugging with nvim-dap
--- vim.keymap.set("n", "db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
--- vim.keymap.set("n", "dc", "<cmd>lua require'dap'.continue()<CR>", opts)
--- vim.keymap.set("n", "do", "<cmd>lua require'dap'.step_over()<CR>", opts)
--- vim.keymap.set("n", "di", "<cmd>lua require'dap'.step_into()<CR>", opts)
--- vim.keymap.set("n", "ds", "<cmd>lua require'dap'.repl.open()<CR>", opts)
+vim.keymap.set("n", "re", "<cmd>Trouble lsp_references<CR>", opts)
 
 -- Toggle nerd tree
 -- ( (t)oggle (t)ree)

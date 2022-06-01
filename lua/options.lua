@@ -25,11 +25,11 @@ augroup Closetree
 augroup END
 ]])
 
- -- g.deus_termcolors = 256
- -- api.nvim_command('colorscheme deus')
---  api.nvim_command('set background=dark')
-api.nvim_command('colorscheme material')
-vim.g.material_style = "deep ocean"
+-- g.deus_termcolors = 256
+-- api.nvim_command('colorscheme deus')
+-- api.nvim_command('set background=dark')
+-- api.nvim_command('colorscheme material')
+-- vim.g.material_style = "oceanic"
 opt.path = "$PWD/**"
 opt.undodir = os.getenv('HOME') .. "/temp/"
 opt.sol = true
@@ -58,6 +58,9 @@ opt.splitright = true -- force all vertical splits to go to the right of current
 opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
 opt.wrap = false -- display lines as one long line
 opt.cursorline = true -- highlight the current line
+vim.opt.background = "light" -- or "light" for light mode
+vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[hi CursorLine cterm=underline gui=underline]])
 opt.guifont = "monospace 17"
 opt.termguicolors = true
 opt.scrolloff = 8 -- is one of my fav
