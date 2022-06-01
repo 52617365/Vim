@@ -37,7 +37,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp Gods plugins
-
+  use 'tami5/lspsaga.nvim'
 
   use 'tpope/vim-fugitive'
   use 'tpope/vim-surround'
