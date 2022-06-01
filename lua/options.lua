@@ -23,8 +23,13 @@ augroup END
 augroup Closetree
   autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 augroup END
-]])
 
+augroup lspsaga_filetypes
+  autocmd!
+  autocmd FileType LspsagaHover nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
+augroup END
+]])
+--
 -- g.deus_termcolors = 256
 -- api.nvim_command('colorscheme deus')
 -- api.nvim_command('set background=dark')
