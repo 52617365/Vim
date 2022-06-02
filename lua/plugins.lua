@@ -40,14 +40,15 @@ return require('packer').startup(function(use)
   use 'tami5/lspsaga.nvim'
 
   use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
 
   use 'ellisonleao/gruvbox.nvim'
   -- for commenting
   use 'numToStr/Comment.nvim'
-  use 'windwp/nvim-ts-autotag'
-
+  -- use 'windwp/nvim-ts-autotag'
+  use 'cohama/lexima.vim'
   use {
     'phaazon/hop.nvim',
     branch = 'v1', -- optional but strongly recommended

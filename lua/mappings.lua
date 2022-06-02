@@ -27,10 +27,10 @@ vim.keymap.set('n', '<Leader>3', ':lua require("harpoon.ui").nav_file(3)<CR>', o
 vim.keymap.set('n', '<Leader>4', ':lua require("harpoon.ui").nav_file(4)<CR>', opts)
 
 vim.keymap.set('n', '<Leader>ff', ':Telescope find_files<cr>', opts)
-vim.keymap.set('n', '<Leader>fg', ':Telescope live_grep<cr>', opts)
-vim.keymap.set('n', '<Leader>fb', ':Telescope buffers<cr>', opts)
-vim.keymap.set('n', '<Leader>fh', ':Telescope help_tags<cr>', opts)
-vim.keymap.set('n', '<Leader>fp', ':Telescope projects<cr>', opts)
+vim.keymap.set('n', '<Leader>gg', ':Telescope live_grep<cr>', opts)
+vim.keymap.set('n', '<Leader>bb', ':Telescope buffers<cr>', opts)
+vim.keymap.set('n', '<Leader>tt', ':Telescope help_tags<cr>', opts)
+vim.keymap.set('n', '<Leader>pp', ':Telescope projects<cr>', opts)
 
 -- lspconfig keybindings
 vim.keymap.set('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
