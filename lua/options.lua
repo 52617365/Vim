@@ -9,26 +9,25 @@ local api = vim.api
 
 g.mapleader = ';'
 
+
 cmd([[
 augroup packer_user_config
   autocmd!
   autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
-
 augroup YankHighlight
   autocmd!
   autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
 augroup END
-
 augroup Closetree
   autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 augroup END
-
 augroup lspsaga_filetypes
   autocmd!
   autocmd FileType LspsagaHover nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
 augroup END
 ]])
+
 --
 -- g.deus_termcolors = 256
 -- api.nvim_command('colorscheme deus')
@@ -63,9 +62,9 @@ opt.splitright = true -- force all vertical splits to go to the right of current
 opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
 opt.wrap = false -- display lines as one long line
 opt.cursorline = true -- highlight the current line
-vim.opt.background = "light" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
-vim.cmd([[hi CursorLine cterm=underline gui=underline]])
+opt.background = "light" -- or "light" for light mode
+cmd([[colorscheme gruvbox]])
+cmd([[hi CursorLine cterm=underline gui=underline]])
 opt.guifont = "monospace 17"
 opt.termguicolors = true
 opt.scrolloff = 8 -- is one of my fav
@@ -76,3 +75,6 @@ opt.lazyredraw = true
 opt.synmaxcol = 300
 opt.expandtab = true
 opt.completeopt = 'menuone,noselect'
+-- g.neovide_cursor_animation_length=0
+-- g.neovide_cursor_trail_length=0
+-- g.neovide_refresh_rate=144
