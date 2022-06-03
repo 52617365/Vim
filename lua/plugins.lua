@@ -12,8 +12,6 @@ return require('packer').startup(function(use)
   -- Easy language server installer etc.
   use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' } -- Collection of configurations for the built-in LSP client
   -- Telescope fuzzy finder
-  use { 'weilbith/nvim-code-action-menu',
-    cmd = 'CodeActionMenu' }
   use 'kosayoda/nvim-lightbulb'
 
   use {
@@ -22,9 +20,9 @@ return require('packer').startup(function(use)
   }
   -- Telescope extensions
   use 'nvim-telescope/telescope-fzy-native.nvim'
+  -- To make default lsp ui better.
+  use 'stevearc/dressing.nvim'
   -- Project management inside neovim with a telescope extension.
-  use 'nvim-telescope/telescope-project.nvim'
-  use 'asbjornhaland/telescope-send-to-harpoon.nvim'
   -- END Telescope extensions
 
   use {
@@ -37,7 +35,6 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp Gods plugins
-  use 'tami5/lspsaga.nvim'
 
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
@@ -47,8 +44,7 @@ return require('packer').startup(function(use)
   use 'ellisonleao/gruvbox.nvim'
   -- for commenting
   use 'numToStr/Comment.nvim'
-  -- use 'windwp/nvim-ts-autotag'
-  use 'cohama/lexima.vim'
+  use 'windwp/nvim-ts-autotag'
   use {
     'phaazon/hop.nvim',
     branch = 'v1', -- optional but strongly recommended
@@ -63,12 +59,10 @@ return require('packer').startup(function(use)
   use { 'mg979/vim-visual-multi', branch = 'master' }
 
   -- Search from vim because I'm lazy.
-  use '52617365/vim-browser-search'
-  use { '52617365/telescope-browser.nvim', branch = "feature_1" }
   -- Colorscheme
-  use 'ajmwagar/vim-deus'
+  -- use 'ajmwagar/vim-deus'
 
-  use 'marko-cerovac/material.nvim'
+  -- use 'marko-cerovac/material.nvim'
   use 'ThePrimeagen/harpoon'
 
   use 'github/copilot.vim'
@@ -97,9 +91,8 @@ return require('packer').startup(function(use)
       require("trouble").setup {}
     end
   }
-
   -- Auto pairs as the same suggest.
-  use 'windwp/nvim-autopairs'
+  -- use 'windwp/nvim-autopairs'
 
 
   -- Automatically set up your configuration after cloning packer.nvim

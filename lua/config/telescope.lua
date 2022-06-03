@@ -13,11 +13,14 @@ require('telescope').setup {
     grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
     qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
     mappings = {
-      i = { ["<c-t>"] = trouble.open_with_trouble, ["<C-h>"] = require 'telescope'.extensions.send_to_harpoon.actions.send_selected_to_harpoon },
       n = { ["<c-t>"] = trouble.open_with_trouble },
     },
   },
   extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+        -- even more opts
+      },
     fzy_native = {
       override_generic_sorter = true,
       override_file_sorter = true,
@@ -46,9 +49,8 @@ require('telescope').setup {
     }
   }
 }
+}
 require('telescope').load_extension('fzy_native')
 -- For project management.
-require('telescope').load_extension('project')
 -- My own extension for browser searching
 --require('telescope').load_extension('telescopebrowser')
-require('telescope').load_extension('send_to_harpoon')

@@ -28,10 +28,7 @@ vim.keymap.set('n', '<Leader>4', ':lua require("harpoon.ui").nav_file(4)<CR>', o
 
 vim.keymap.set('n', '<Leader>ff', ':Telescope find_files<cr>', opts)
 vim.keymap.set('n', '<Leader>gg', ':Telescope live_grep<cr>', opts)
-vim.keymap.set('n', '<Leader>bb', ':Telescope buffers<cr>', opts)
-vim.keymap.set('n', '<Leader>tt', ':Telescope help_tags<cr>', opts)
-vim.keymap.set('n', '<Leader>pp', ':Telescope projects<cr>', opts)
-
+vim.keymap.set('n', '<Leader>bb', ':Telescope buffers<cr>', opts) vim.keymap.set('n', '<Leader>tt', ':Telescope help_tags<cr>', opts) vim.keymap.set('n', '<Leader>pp', ':Telescope projects<cr>', opts)
 -- lspconfig keybindings
 vim.keymap.set('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.keymap.set('n', 'se', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
@@ -49,7 +46,7 @@ vim.keymap.set("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<CR>", opts
 vim.keymap.set("n", "<leader>xd", "<cmd>Trouble document_diagnostics<CR>", opts)
 vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist<CR>", opts)
 vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix<CR>", opts)
-vim.keymap.set("n", "re", "<cmd>Trouble lsp_references<CR>", opts)
+vim.keymap.set("n", "<leader>xe", "<cmd>Trouble lsp_references<CR>", opts)
 
 -- Toggle nerd tree
 -- ( (t)oggle (t)ree)
@@ -60,3 +57,4 @@ vim.keymap.set('n', '<leader>fp', ":lua require'telescope'.extensions.project.pr
 
 -- Hop.nvim
 vim.keymap.set('n', '<leader>h', ":HopWord<CR>", opts)
+vim.keymap.set('n', '<leader>c', ":HopChar1<CR>", opts)

@@ -2,33 +2,23 @@ local api = vim.api
 local opts = { noremap = true, silent = true }
 
 local lspconfig = require("lspconfig")
-
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 local on_attach = function(_, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  -- api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  -- api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  -- api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  -- api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  -- api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  -- api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  -- api.nvim_buf_set_keymap(bufnr, 'n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  -- api.nvim_buf_set_keymap(bufnr, 'n', '<space>td', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  -- api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  vim.keymap.set('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  vim.keymap.set('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  vim.keymap.set('n', '<space>t', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  vim.keymap.set('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   -- api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>CodeActionMenu<CR>', opts)
-  -- api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  api.nvim_buf_set_keymap(bufnr, 'n', '<space>r', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  api.nvim_buf_set_keymap(bufnr, 'n', '<C-f>', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
-  api.nvim_buf_set_keymap(bufnr, 'v', '<space>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
-  --- In lsp attach function
-  api.nvim_buf_set_keymap(bufnr, "n", "<space>r", "<cmd>Lspsaga rename<cr>", opts)
-  api.nvim_buf_set_keymap(bufnr, "n", "<space>c", "<cmd>Lspsaga code_action<cr>", opts)
-  api.nvim_buf_set_keymap(bufnr, "n", "<space>d", "<cmd>Lspsaga hover_doc<cr>", opts)
-  api.nvim_buf_set_keymap(bufnr, "n", "<space>f", "<cmd>Lspsaga lsp_finder<cr>", opts)
-  api.nvim_buf_set_keymap(bufnr, "n", "<space>l", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
-  api.nvim_buf_set_keymap(bufnr, "n", "[e", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
-  api.nvim_buf_set_keymap(bufnr, "n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
-  api.nvim_buf_set_keymap(bufnr, "n", "<S-Tab>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
-  api.nvim_buf_set_keymap(bufnr, "n", "<Tab>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
+  vim.keymap.set('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  vim.keymap.set('n', '<space>re', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  vim.keymap.set('n', '<C-f>', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+  vim.keymap.set('v', '<space>', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
   -- This next part is to open lsp diagnostics into a floating window ON HOVER
   vim.api.nvim_create_autocmd("CursorHold", {

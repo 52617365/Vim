@@ -75,6 +75,3 @@ opt.lazyredraw = true
 opt.synmaxcol = 300
 opt.expandtab = true
 opt.completeopt = 'menuone,noselect'
--- g.neovide_cursor_animation_length=0
--- g.neovide_cursor_trail_length=0
--- g.neovide_refresh_rate=144
