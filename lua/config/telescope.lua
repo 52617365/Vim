@@ -21,36 +21,50 @@ require('telescope').setup {
       require("telescope.themes").get_dropdown {
         -- even more opts
       },
-    fzy_native = {
-      override_generic_sorter = true,
-      override_file_sorter = true,
-    },
-    project = {
-      base_dirs = { '~/dev/file_analyzer/src', max_depth = 2,
-        { '~/dev/Elasticsearch-Parser/src', max_depth = 2 },
-        { '~/dev/work/site', max_depth = 2 },
-        { '~/.config/nvim/lua', max_depth = 2 },
+      fzy_native = {
+        override_generic_sorter = true,
+        override_file_sorter = true,
       },
-      hidden_files = false, -- default: false
-      theme = "dropdown",
-    },
-    telescope_browser = {
-      docs_urls = {
-        ["lua"] = [["https://www.google.com/search?q=%s&as_sitesearch=lua.org/manual/5.4"]],
-        ["rust"] = [["https://doc.rust-lang.org/std/index.html?search=%s"]],
-        ["cpp"] = [["https://www.google.com/search?q=%s&as_sitesearch=cppreference.com"]],
-        ["c"] = [["https://www.google.com/search?q=%s&as_sitesearch=cppreference.com"]],
-        ["java"] = [["https://docs.oracle.com/search/?q=%s&category=java&product=en%3Fjava"]],
-        ["javascript"] = [["https://developer.mozilla.org/en-US/search?q=%s"]],
-        ["php"] = [["https://www.php.net/manual-lookup.php?pattern=%s&scope=quickref"]],
-        ["vim"] = [["https://vim.fandom.com/wiki/Special:Search?query=%s&scope=internal&contentType=&ns%5B0%5D=0"]],
-        ["kotlin"] = [["https://kotlinlang.org/docs/home.html?q=%s&s=full"]],
+      project = {
+        base_dirs = { '~/dev/file_analyzer/src', max_depth = 2,
+          { '~/dev/Elasticsearch-Parser/src', max_depth = 2 },
+          { '~/dev/work/site', max_depth = 2 },
+          { '~/.config/nvim/lua', max_depth = 2 },
+        },
+        hidden_files = false, -- default: false
+        theme = "dropdown",
+      },
+      file_browser = {
+        theme = "ivy",
+        -- disables netrw and use telescope-file-browser in its place
+        hijack_netrw = true,
+        mappings = {
+          ["i"] = {
+            -- your custom insert mode mappings
+          },
+          ["n"] = {
+            -- your custom normal mode mappings
+          },
+        },
+      },
+      telescope_browser = {
+        docs_urls = {
+          ["lua"] = [["https://www.google.com/search?q=%s&as_sitesearch=lua.org/manual/5.4"]],
+          ["rust"] = [["https://doc.rust-lang.org/std/index.html?search=%s"]],
+          ["cpp"] = [["https://www.google.com/search?q=%s&as_sitesearch=cppreference.com"]],
+          ["c"] = [["https://www.google.com/search?q=%s&as_sitesearch=cppreference.com"]],
+          ["java"] = [["https://docs.oracle.com/search/?q=%s&category=java&product=en%3Fjava"]],
+          ["javascript"] = [["https://developer.mozilla.org/en-US/search?q=%s"]],
+          ["php"] = [["https://www.php.net/manual-lookup.php?pattern=%s&scope=quickref"]],
+          ["vim"] = [["https://vim.fandom.com/wiki/Special:Search?query=%s&scope=internal&contentType=&ns%5B0%5D=0"]],
+          ["kotlin"] = [["https://kotlinlang.org/docs/home.html?q=%s&s=full"]],
+        }
       }
     }
   }
 }
-}
 require('telescope').load_extension('fzy_native')
+require("telescope").load_extension('file_browser')
 -- For project management.
 -- My own extension for browser searching
 --require('telescope').load_extension('telescopebrowser')

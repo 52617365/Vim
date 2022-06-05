@@ -11,8 +11,6 @@ return require('packer').startup(function(use)
 
   -- Easy language server installer etc.
   use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' } -- Collection of configurations for the built-in LSP client
-  -- Telescope fuzzy finder
-  use 'kosayoda/nvim-lightbulb'
 
   use {
     'nvim-telescope/telescope.nvim',
@@ -20,31 +18,33 @@ return require('packer').startup(function(use)
   }
   -- Telescope extensions
   use 'nvim-telescope/telescope-fzy-native.nvim'
+  use 'nvim-telescope/telescope-file-browser.nvim'
+
   -- To make default lsp ui better.
   use 'stevearc/dressing.nvim'
-  -- Project management inside neovim with a telescope extension.
-  -- END Telescope extensions
 
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
 
+  use 'windwp/nvim-autopairs'
+  use 'windwp/nvim-ts-autotag'
+
   -- cmp
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp Gods plugins
+  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
 
+  -- Gods plugins
   use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
 
   use 'ellisonleao/gruvbox.nvim'
   -- for commenting
   use 'numToStr/Comment.nvim'
-  use 'windwp/nvim-ts-autotag'
   use {
     'phaazon/hop.nvim',
     branch = 'v1', -- optional but strongly recommended
@@ -58,11 +58,6 @@ return require('packer').startup(function(use)
   -- Multi cursor thingy.
   use { 'mg979/vim-visual-multi', branch = 'master' }
 
-  -- Search from vim because I'm lazy.
-  -- Colorscheme
-  -- use 'ajmwagar/vim-deus'
-
-  -- use 'marko-cerovac/material.nvim'
   use 'ThePrimeagen/harpoon'
 
   use 'github/copilot.vim'
@@ -75,15 +70,18 @@ return require('packer').startup(function(use)
     },
   }
 
+  -- Icons in nerd tree and elsewhere.
   use 'ryanoasis/vim-devicons'
 
   use { -- Nvim Treesitter configurations and abstraction layer
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
   }
+  -- debugging and customizing treesitter
   use 'nvim-treesitter/playground'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
 
+  -- Manage errors and shit easier with nicer ui.
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
@@ -91,9 +89,6 @@ return require('packer').startup(function(use)
       require("trouble").setup {}
     end
   }
-  -- Auto pairs as the same suggest.
-  -- use 'windwp/nvim-autopairs'
-
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
