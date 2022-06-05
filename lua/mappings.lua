@@ -32,6 +32,10 @@ vim.keymap.set('n', '<Leader>bb', ':Telescope buffers<cr>', opts)
 vim.keymap.set('n', '<Leader>tt', ':Telescope help_tags<cr>', opts)
 vim.keymap.set('n', '<Leader>pp', ':Telescope projects<cr>', opts)
 vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<cr>", { noremap = true })
+
+-- remap to open the Telescope refactoring menu in visual mode
+vim.api.nvim_set_keymap("v", "<leader>rr", "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", { noremap = true })
+
 -- lspconfig keybindings
 vim.keymap.set('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.keymap.set('n', 'se', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)

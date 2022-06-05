@@ -20,6 +20,9 @@ return require('packer').startup(function(use)
   use 'nvim-telescope/telescope-fzy-native.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
 
+  -- refactoring.nvim
+  use 'ThePrimeagen/refactoring.nvim'
+
   -- To make default lsp ui better.
   use 'stevearc/dressing.nvim'
 
@@ -63,12 +66,12 @@ return require('packer').startup(function(use)
   use 'github/copilot.vim'
 
   -- Nerd tree written in lua
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icon
-    },
-  }
+  -- use {
+  --   'kyazdani42/nvim-tree.lua',
+  --   requires = {
+  --     'kyazdani42/nvim-web-devicons', -- optional, for file icon
+  --   },
+  -- }
 
   -- Icons in nerd tree and elsewhere.
   use 'ryanoasis/vim-devicons'
