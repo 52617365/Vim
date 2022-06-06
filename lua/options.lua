@@ -18,9 +18,6 @@ augroup YankHighlight
   autocmd!
   autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
 augroup END
-augroup Closetree
-  autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-augroup END
 ]])
 
 --
@@ -46,7 +43,6 @@ opt.splitright = true -- force all vertical splits to go to the right of current
 opt.relativenumber = true
 opt.ignorecase = true
 opt.pumheight = 10 -- pop up menu height
-opt.showtabline = 2 -- always show tabs
 opt.smartcase = true -- smart case
 opt.shiftwidth = 2
 opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
