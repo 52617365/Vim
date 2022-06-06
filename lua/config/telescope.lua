@@ -107,6 +107,7 @@ require('telescope').load_extension('fzy_native')
 require("telescope").load_extension('file_browser')
 require("telescope").load_extension("refactoring")
 require("telescope").load_extension('hop')
+require('telescope').load_extension('luasnip')
 -- For project management.
 -- My own extension for browser searching
 -- require('telescope').load_extension('telescopebrowser')

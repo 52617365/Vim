@@ -22,6 +22,11 @@ return require('packer').startup(function(use)
   -- Hopping inside telescope. (pog)
   use 'nvim-telescope/telescope-hop.nvim'
 
+  -- select snippets inside telescope.
+  use {
+    "benfowler/telescope-luasnip.nvim",
+    module = "telescope._extensions.luasnip", -- if you wish to lazy-load
+  }
   -- refactoring.nvim
   use 'ThePrimeagen/refactoring.nvim'
 
@@ -86,7 +91,6 @@ return require('packer').startup(function(use)
       require("trouble").setup {}
     end
   }
-
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
