@@ -1,7 +1,6 @@
 local opt = vim.opt
 local cmd = vim.cmd
 local g = vim.g
-local api = vim.api
 
 --------------
 -- Options --
@@ -22,10 +21,6 @@ augroup END
 augroup Closetree
   autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 augroup END
-augroup lspsaga_filetypes
-  autocmd!
-  autocmd FileType LspsagaHover nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
-augroup END
 ]])
 
 --
@@ -34,6 +29,7 @@ augroup END
 -- api.nvim_command('set background=dark')
 -- api.nvim_command('colorscheme material')
 -- vim.g.material_style = "oceanic"
+vim.cmd([[set winbar=%m\ %f]])
 opt.path = "$PWD/**"
 opt.undodir = os.getenv('HOME') .. "/temp/"
 opt.sol = true
