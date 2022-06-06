@@ -117,7 +117,7 @@ vim.cmd [[
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
   -- This will disable virtual text, like doing:
-  virtual_text = false, -- This is similar to: let g:diagnostic_show_sign = 1 To configure sign display,
+  -- virtual_text = false, -- This is similar to: let g:diagnostic_show_sign = 1 To configure sign display,
   --  see: ":help vim.lsp.diagnostic.set_signs()"
   signs = true,
   -- This is similar to:

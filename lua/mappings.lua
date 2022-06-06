@@ -4,6 +4,13 @@
 local opts = { noremap = true, silent = true }
 local non_silent_opts = { noremap = true, silent = false }
 
+-- resize buffers
+-- TODO: Add resizing keybindings.
+-- vim.keymap.set('n', '<C-h>', ':vertical resize -10<cr>', opts)
+-- vim.keymap.set('n', '<C-j>', ':resize -10<cr>', opts)
+-- vim.keymap.set('n', '<C-k>', ':resize 10<cr>', opts)
+-- vim.keymap.set('n', '<C-l>', ':vertical resize 10<cr>', opts)
+
 -- Saving stuff to save time
 vim.keymap.set('n', '<C-s>', ':w<CR>', opts)
 vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>', opts)
@@ -66,3 +73,10 @@ vim.keymap.set('n', '<leader>fp', ":lua require'telescope'.extensions.project.pr
 -- Hop.nvim
 vim.keymap.set('n', '<leader>h', ":HopWord<CR>", opts)
 vim.keymap.set('n', '<leader>c', ":HopChar1<CR>", opts)
+
+-- debug (dap)
+-- vim.keymap.set('n', '<leader>b', ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+-- vim.keymap.set('n', '<leader>c', ":lua require'dap'.continue()<CR>", opts)
+-- vim.keymap.set('n', '<leader>o', ":lua require'dap'.step_over()<CR>", opts)
+-- vim.keymap.set('n', '<leader>i', ":lua require'dap'.step_into()<CR>", opts)
+-- vim.keymap.set('n', '<leader>r', ":lua require'dap'.repl.open()<CR>", opts)

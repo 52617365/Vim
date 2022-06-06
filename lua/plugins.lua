@@ -10,15 +10,17 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Easy language server installer etc.
-  use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' } -- Collection of configurations for the built-in LSP client
+  use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' }
+  -- Collection of configurations for the built-in LSP client
 
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' }
-  }
+  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use 'simrat39/rust-tools.nvim'
   -- Telescope extensions
   use 'nvim-telescope/telescope-fzy-native.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
+
+  -- Hopping inside telescope. (pog)
+  use 'nvim-telescope/telescope-hop.nvim'
 
   -- refactoring.nvim
   use 'ThePrimeagen/refactoring.nvim'
@@ -64,14 +66,6 @@ return require('packer').startup(function(use)
   use 'ThePrimeagen/harpoon'
 
   use 'github/copilot.vim'
-
-  -- Nerd tree written in lua
-  -- use {
-  --   'kyazdani42/nvim-tree.lua',
-  --   requires = {
-  --     'kyazdani42/nvim-web-devicons', -- optional, for file icon
-  --   },
-  -- }
 
   -- Icons in nerd tree and elsewhere.
   use 'ryanoasis/vim-devicons'
