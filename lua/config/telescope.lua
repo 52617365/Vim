@@ -1,6 +1,5 @@
 --------------
 -- Mappings --
---------------
 P = function(v)
   print(vim.inspect(v))
   return v
@@ -41,9 +40,7 @@ require('telescope').setup {
       require("telescope.themes").get_dropdown {
         -- even more opts
       },
-      fzy_native = {
-        override_generic_sorter = true,
-        override_file_sorter = true,
+      fzy_native = { override_generic_sorter = true, override_file_sorter = true,
       },
       project = {
         base_dirs = { '~/dev/file_analyzer/src', max_depth = 2,
@@ -107,7 +104,7 @@ require('telescope').load_extension('fzy_native')
 require("telescope").load_extension('file_browser')
 require("telescope").load_extension("refactoring")
 require("telescope").load_extension('hop')
-require('telescope').load_extension('luasnip')
+--require('telescope').load_extension('luasnip')
 -- For project management.
 -- My own extension for browser searching
 -- require('telescope').load_extension('telescopebrowser')

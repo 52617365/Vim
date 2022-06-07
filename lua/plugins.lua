@@ -8,7 +8,7 @@ end
 return require('packer').startup(function(use)
   -- My plugins here
   use 'wbthomason/packer.nvim'
-
+  use 'lewis6991/impatient.nvim'
   -- Easy language server installer etc.
   use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' }
   -- Collection of configurations for the built-in LSP client
@@ -23,10 +23,7 @@ return require('packer').startup(function(use)
   use 'nvim-telescope/telescope-hop.nvim'
 
   -- select snippets inside telescope.
-  use {
-    "benfowler/telescope-luasnip.nvim",
-    module = "telescope._extensions.luasnip", -- if you wish to lazy-load
-  }
+  use "benfowler/telescope-luasnip.nvim"
   -- refactoring.nvim
   use 'ThePrimeagen/refactoring.nvim'
 
