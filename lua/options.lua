@@ -18,14 +18,9 @@ augroup YankHighlight
   autocmd!
   autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
 augroup END
+set nohlsearch
 ]])
 
---
--- g.deus_termcolors = 256
--- api.nvim_command('colorscheme deus')
--- api.nvim_command('set background=dark')
--- api.nvim_command('colorscheme material')
--- vim.g.material_style = "oceanic"
 vim.cmd([[set winbar=%m\ %f]])
 opt.path = "$PWD/**"
 opt.undodir = os.getenv('HOME') .. "/temp/"
@@ -59,7 +54,7 @@ cmd([[colorscheme gruvbox]])
 cmd([[hi CursorLine cterm=underline gui=underline]])
 opt.guifont = "monospace 17"
 opt.termguicolors = true
-opt.scrolloff = 8 -- is one of my fav
+opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.undofile = true
 opt.timeoutlen = 800 -- time to wait for a mapped sequence to complete (in milliseconds)

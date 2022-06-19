@@ -98,6 +98,23 @@ return require('packer').startup(function(use)
       })
     end
   })
+
+  -- Http requests inside neovim.
+  use {
+    "NTBBloodbath/rest.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+  }
+
+  use {
+    "nvim-neorg/neorg",
+    requires = "nvim-lua/plenary.nvim"
+  }
+  use { '52617365/nvimanki',
+    requires = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" }}
+
+  -- ui components for plugin development
+  use 'MunifTanjim/nui.nvim'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
